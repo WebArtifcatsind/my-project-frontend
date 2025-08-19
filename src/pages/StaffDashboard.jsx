@@ -22,7 +22,7 @@ const StaffDashboard = () => {
     setError("");
     try {
       const res = await fetch(
-        `https://webartifacts.in/api/attendance/user/${user.id}?month=${selectedMonth}&year=${selectedYear}`,
+        `https://api.webartifacts.in/api/attendance/user/${user.id}?month=${selectedMonth}&year=${selectedYear}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

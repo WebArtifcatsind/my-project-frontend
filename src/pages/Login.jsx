@@ -39,7 +39,7 @@ const Login = () => {
     e.preventDefault();
     clearMessages();
     try {
-      const res = await axios.post("https://webartifacts.in/api/auth/login", {
+      const res = await axios.post("https://api.webartifacts.in/api/auth/login", {
         email,
         password,
       });
@@ -59,7 +59,7 @@ const Login = () => {
     e.preventDefault();
     clearMessages();
     try {
-      await axios.post("https://webartifacts.in/api/auth/forgot-password", {
+      await axios.post("https://api.webartifacts.in/api/auth/forgot-password", {
         email: forgotPasswordEmail,
       });
       setMessage({ text: "OTP sent to your email", type: "success" });
@@ -77,7 +77,7 @@ const Login = () => {
     e.preventDefault();
     clearMessages();
     try {
-      await axios.post("https://webartifacts.in/api/auth/verify-otp", {
+      await axios.post("https://api.webartifacts.in/api/auth/verify-otp", {
         email: forgotPasswordEmail,
         otp,
       });
@@ -107,7 +107,7 @@ const Login = () => {
     }
 
     try {
-      await axios.post("https://webartifacts.in/api/auth/reset-password", {
+      await axios.post("https://api.webartifacts.in/api/auth/reset-password", {
         email: forgotPasswordEmail,
         otp,
         newPassword,

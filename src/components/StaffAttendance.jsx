@@ -57,7 +57,7 @@ const StaffAttendance = ({
     if (!user?.id || !token) return;
     const fetchToday = async () => {
       try {
-        const res = await axios.get(`https://webartifacts.in/api/attendance/today/${user.id}`, {
+        const res = await axios.get(`https://api.webartifacts.in/api/attendance/today/${user.id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTodayStatus(res.data?.status || null);
@@ -82,7 +82,7 @@ const StaffAttendance = ({
     setMessage("");
     try {
       const res = await axios.post(
-        "https://webartifacts.in/api/attendance/mark",
+        "https://api.webartifacts.in/api/attendance/mark",
         { staffId: user.id },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -61,7 +61,7 @@ const RegisterUserForm = () => {
 
     try {
       const res = await axios.post(
-        "https://webartifacts.in/api/auth/register",
+        "https://api.webartifacts.in/api/auth/register",
         {
           ...formData,
           requesterRole: currentUser?.role,

@@ -9,7 +9,7 @@ const StaffComplaints = ({ token }) => {
   const fetchAssignedComplaints = async () => {
     try {
       const res = await axios.get(
-        "https://webartifacts.in/api/client/complaints/assigned",
+        "https://api.webartifacts.in/api/client/complaints/assigned",
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setAssignedComplaints(res.data);
@@ -21,7 +21,7 @@ const StaffComplaints = ({ token }) => {
   const markComplaintResolved = async (id) => {
     try {
       await axios.put(
-        `https://webartifacts.in/api/client/complaint/resolve/${id}`,
+        `https://api.webartifacts.in/api/client/complaint/resolve/${id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -40,7 +40,7 @@ const StaffComplaints = ({ token }) => {
       return;
     try {
       await axios.delete(
-        `https://webartifacts.in/api/client/complaints/staff/${id}`,
+        `https://api.webartifacts.in/api/client/complaints/staff/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setAssignedComplaints((prev) => prev.filter((c) => c.id !== id));
@@ -88,7 +88,7 @@ const StaffComplaints = ({ token }) => {
 
               {comp.file && (
                 <a
-                  href={`https://webartifacts.in/uploads/complaints/${comp.file}`}
+                  href={`https://api.webartifacts.in/uploads/complaints/${comp.file}`}
                   download
                   className="complaint-file-link"
                 >

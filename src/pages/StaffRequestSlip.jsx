@@ -18,7 +18,7 @@ const StaffRequestSlip = () => {
 
     try {
       await axios.post(
-        "https://webartifacts.in/api/salary/request-slip",
+        "https://api.webartifacts.in/api/salary/request-slip",
         { request_msg: message },
         {
           headers: {
@@ -37,7 +37,7 @@ const StaffRequestSlip = () => {
 
   const fetchMyRequests = async () => {
     try {
-      const res = await axios.get("https://webartifacts.in/api/staff/my-requests", {
+      const res = await axios.get("https://api.webartifacts.in/api/staff/my-requests", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

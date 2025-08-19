@@ -106,7 +106,7 @@ const Contact = () => {
 
     try {
       const payload = { ...formData, phone: countryCode + formData.phone };
-      const response = await axios.post('https://webartifacts.in/api/contact', payload);
+      const response = await axios.post('https://api.webartifacts.in/api/contact', payload);
       if (response.status === 201) {
         setSubmitStatus('success');
         setModalTitle('Success!');

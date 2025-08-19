@@ -8,7 +8,7 @@ const PublicTestimonials = () => {
 
   useEffect(() => {
     axios
-      .get("https://webartifacts.in/api/client/public-feedbacks")
+      .get("https://api.webartifacts.in/api/client/public-feedbacks")
       .then((res) => setFeedbacks(res.data))
       .catch((err) => console.error("Error fetching public feedbacks", err));
   }, []);

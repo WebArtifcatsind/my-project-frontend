@@ -7,7 +7,7 @@ const StaffTraining = ({ token }) => {
   const [error, setError] = useState("");
 
   const getFileURL = (filename) =>
-    `https://webartifacts.in/uploads/training/${filename}`;
+    `https://api.webartifacts.in/uploads/training/${filename}`;
 
   const isVideo = (f) => f.toLowerCase().endsWith(".mp4");
   const isImage = (f) => /\.(jpg|jpeg|png|avif)$/i.test(f);
@@ -16,7 +16,7 @@ const StaffTraining = ({ token }) => {
 
   const fetchMaterials = async () => {
     try {
-      const res = await axios.get("https://webartifacts.in/api/training/all", {
+      const res = await axios.get("https://api.webartifacts.in/api/training/all", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMaterials(res.data);

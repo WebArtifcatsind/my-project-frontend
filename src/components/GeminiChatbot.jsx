@@ -36,7 +36,7 @@ const GeminiChatbot = () => {
     try {
       // Make a POST request to your backend API endpoint
       // Ensure this URL matches your backend's actual address and endpoint
-      const response = await fetch('https://webartifacts.in/api/gemini-chatbot', {
+      const response = await fetch('https://api.webartifacts.in/api/gemini-chatbot', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
