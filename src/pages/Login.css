@@ -1,0 +1,190 @@
+/* ============================
+   Login.css (colors unchanged)
+   ============================ */
+
+/* prevent OS dark-mode auto-theming */
+.login-container,
+.login-container * {
+  color-scheme: light;
+}
+
+/* Page shell — unchanged */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #f3f4f6; /* same as before */
+  margin-top: 30px;
+}
+
+.login-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* Form card — unchanged colors */
+.login-form-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 1rem;
+}
+
+/* Heading */
+.login-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: inherit; /* keep your theme */
+}
+
+/* Messages */
+.message {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+.error-message, .message.error { color: #ef4444; }
+.success-message, .message.success { color: #10b981; }
+
+/* Form layout */
+.form-group { margin-bottom: 1rem; }
+.form-label {
+  display: block;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+/* Inputs (keep colors), fix autofill & focus */
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  outline: none;
+  background-color: #ffffff;
+  color: #111827;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-input:focus {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  border-color: #3b82f6;
+}
+
+/* kill Chrome/Edge autofill gray/yellow */
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #111827;
+  transition: background-color 99999s ease-in-out 0s;
+  box-shadow: 0 0 0 1000px #ffffff inset;
+}
+
+/* Forgot Password — force link look (no black pill) */
+.forgot-password-link {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+/* make the inner button a plain text link */
+.forgot-password-link > button {
+  background: transparent !important;
+  border: none !important;
+  color: #2563eb !important;
+  padding: 0 !important;
+  margin: 0;
+  font: inherit;
+  line-height: 1.25;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.forgot-password-link > button:hover { color: #1d4ed8 !important; }
+.forgot-password-link > button:focus,
+.forgot-password-link > button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(59,130,246,.45);
+  border-radius: 4px;
+}
+
+/* Primary login button (unchanged) */
+.login-button {
+  width: 100%;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.login-button:hover { background-color: #1d4ed8; }
+
+/* Two-button rows (forgot flow) */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.secondary-button, .primary-button {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+.secondary-button { background-color: #6b7280; }
+.secondary-button:hover { background-color: #4b5563; }
+.primary-button { background-color: #2563eb; }
+.primary-button:hover { background-color: #1d4ed8; }
+
+/* OTP input helper */
+.otp-input { letter-spacing: 0.5rem; font-size: 1.25rem; text-align: center; }
+
+/* Password hint */
+.password-hint { font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem; }
+
+/* Disabled buttons */
+button:disabled,
+.login-button:disabled,
+.primary-button:disabled,
+.secondary-button:disabled {
+  background-color: #a0aec0 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-form-container { margin: 0 0.75rem; padding: 1.5rem; }
+  .button-group { flex-direction: column; }
+}
+
+/* High-contrast (Windows) — keep link visible but no color changes elsewhere */
+@media (forced-colors: active) {
+  .forgot-password-link > button {
+    forced-color-adjust: none;
+    color: LinkText !important;
+    background: transparent !important;
+    border: none !important;
+  }
+}

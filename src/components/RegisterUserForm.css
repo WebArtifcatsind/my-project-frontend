@@ -1,0 +1,135 @@
+/* D:\office\webartifacts\webartifacts-frontend\src\components\RegisterUserForm.css */
+
+/*
+ * This CSS file provides styles for the RegisterUserForm component.
+ */
+
+/*
+ * The main form container. It will now take 100% width of its parent.
+ */
+.register-user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Consistent spacing between form groups */
+    width: 100%; /* Allows the form to take the full width of its container */
+    /* Removed max-width and margin: auto here to allow it to expand */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4b5563; /* Gray-700 from TailwindCSS */
+    margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #111827; /* Gray-900 */
+    background-color: #f9fafb; /* Gray-50 */
+    border: 1px solid #d1d5db; /* Gray-300 */
+    border-radius: 0.5rem; /* Rounded corners */
+    transition: all 0.2s ease-in-out;
+    -webkit-appearance: none; /* Removes default styling for some browsers */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Style on focus to provide user feedback */
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: #4f46e5; /* Indigo-600 */
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); /* Soft blue shadow */
+}
+
+/* Style for input with error */
+.form-input.input-error {
+    border-color: #ef4444; /* Red-500 */
+}
+.form-input.input-error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+
+/* Styles for select dropdown arrow */
+.form-select {
+    cursor: pointer;
+}
+
+.form-select::-ms-expand {
+    display: none; /* Hide the default arrow on IE/Edge */
+}
+
+/* Style for error messages */
+.error-message {
+    font-size: 0.8rem;
+    color: #ef4444; /* Red-500 */
+    margin-top: 0.25rem;
+    min-height: 1rem; /* Prevents layout shift when an error appears/disappears */
+}
+
+/* Style for success/submission messages */
+.submit-message {
+    font-size: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.submit-message.success {
+    background-color: #d1fae5; /* Green-100 */
+    color: #065f46; /* Green-700 */
+}
+
+.submit-message.error {
+    background-color: #fee2e2; /* Red-100 */
+    color: #991b1b; /* Red-700 */
+}
+
+/* Submit Button */
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #4f46e5; /* Indigo-600 */
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #4338ca; /* Indigo-700 */
+}
+
+.submit-button:disabled {
+    background-color: #9ca3af; /* Gray-400 */
+    cursor: not-allowed;
+}
+
+/*
+ * This is the parent card that controls the form's overall width.
+ * I have set a sensible max-width of 600px here to keep the form readable
+ * without being too wide on large screens.
+ */
+.admin-view-card {
+    max-width: 600px; /* This controls the maximum width of the card containing the form */
+    margin: 2rem auto; /* Centers the card horizontally */
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}

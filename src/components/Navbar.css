@@ -1,0 +1,341 @@
+/* Navbar.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 70px;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  display: flex; /* Ensure navbar itself uses flex for content alignment */
+  align-items: center; /* Vertically center content in the navbar */
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 100%;
+  width: 100%; /* Ensure container takes full full-width of navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-weight: 700;
+  color: #1e40af;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+.brand:hover {
+  color: #1e3a8a;
+}
+
+.navbar-logo {
+  height: 200px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  /* Default desktop styles */
+}
+
+.nav-link {
+  color: #1e40af;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-link:hover {
+  color: #1e3a8a;
+}
+
+.support-container {
+  position: relative;
+}
+
+/* Base styles for the dropdown menus - hidden by default */
+.support-menu,
+.language-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* This class is added by JavaScript to show the dropdown */
+.show-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.support-item {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #374151;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.support-item:hover {
+  background-color: #f3f4f6;
+  color: #1e40af;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: #1e40af;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background-color: #f3f4f6;
+  color: #1e3a8a;
+}
+
+.contact-btn {
+  background-color: #1e40af;
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.contact-btn:hover {
+  background-color: #1e3a8a;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.language-container {
+  position: relative;
+}
+
+/* This rule moves the language dropdown to the right */
+.language-container .support-menu,
+.language-container .language-menu {
+  left: auto;
+  right: 0;
+}
+
+.language-item {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #374151;
+  text-decoration: none;
+  transition: all 0.2s;
+  text-align: left;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.language-item:hover {
+  background-color: #f3f4f6;
+  color: #1e40af;
+}
+
+/* Add this new rule to the bottom of your Navbar.css file */
+.logout-btn {
+  background-color: #dc3545; /* A standard red color */
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c82333; /* A slightly darker red for hover */
+  transform: translateY(-1px);
+}
+
+/* Animation for mode toggle (removed the toggle button, but kept the animation for reference) */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.mode-toggle {
+  transition: transform 0.5s ease;
+}
+
+.mode-toggle:hover {
+  transform: rotate(30deg);
+}
+
+
+/* --- Responsive Styles --- */
+
+/* Mobile menu toggle (hamburger icon) */
+.menu-toggle {
+  display: none; /* Hidden by default on desktop */
+  font-size: 1.8rem;
+  color: #1e40af;
+  cursor: pointer;
+  z-index: 1040; /* Ensure it's above other content */
+}
+
+@media (max-width: 992px) { /* Adjust breakpoint as needed */
+  .nav-links {
+    position: fixed;
+    top: 70px; /* Start below the fixed navbar */
+    right: -100%; /* Start off-screen to the right */
+    width: 50%; /* Changed width to 50% as requested */
+    max-width: 300px; /* Optional: set a max width */
+    height: 40vh; /* Fill remaining viewport height below navbar */
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    padding: 0.5rem 0; /* Reduced top/bottom padding to tighten spacing */
+    align-items: flex-start; /* Align links to the left in mobile menu */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 1035; /* Below the toggle button, above other content */
+    display: flex; /* Keep flex display for column layout */
+    overflow-y: auto; /* Enable vertical scrolling for the mobile menu */
+  }
+
+  .nav-links.mobile-nav-active {
+    right: 0; /* Slide in from the right */
+  }
+
+  .menu-toggle {
+    display: block; /* Show the hamburger icon on small screens */
+  }
+
+  /* Ensure these containers take full width to allow their children to expand */
+  .support-container,
+  .language-container {
+    width: 100%;
+    display: block; /* Make these containers behave as block-level for full width */
+  }
+
+  /* Main navigation items in the mobile menu */
+  .nav-link,
+  .contact-btn,
+  .logout-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.3rem 1.5rem; /* Vertical padding for main items */
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    display: block; /* Ensure all these are block level for full width hover */
+  }
+
+  /* Specific styling for the link inside support-container */
+  .support-container .nav-link {
+    display: block; /* Ensure the link itself behaves as a block */
+    width: 100%;
+    text-align: left;
+    padding: 0.3rem 1.5rem; /* Match parent item padding */
+    box-sizing: border-box;
+  }
+
+  /* Specific styling for the button inside language-container */
+  .language-container .icon-btn {
+    display: block; /* Ensure the button itself behaves as a block */
+    width: 100%;
+    text-align: left; /* Align text within the button */
+    padding: 0.3rem 1.5rem; /* Match parent item padding */
+    box-sizing: border-box;
+  }
+
+  /* Hover styles for all interactive elements in the mobile menu */
+  .nav-link:hover,
+  .contact-btn:hover,
+  .logout-btn:hover,
+  .support-item:hover,
+  .language-item:hover { /* These are generic hover styles for direct links/buttons and dropdown items */
+    background-color: #f3f4f6; /* Light gray background on hover */
+    color: #1e40af; /* Change text color to primary brand color on hover for better visibility */
+    transform: none; /* Ensure no conflicting transforms from original hover styles */
+  }
+
+  /* Special hover styles for containers that hold internal links/buttons */
+  .support-container:hover,
+  .language-container:hover {
+    background-color: #f3f4f6; /* Apply hover background to the entire container */
+  }
+
+  /* Ensure text color changes for children when their parent container is hovered */
+  .support-container:hover .nav-link,
+  .language-container:hover .icon-btn {
+    color: #1e40af;
+  }
+
+  /* Dropdown menus (Services, Support Centre, Language) when shown in mobile */
+  .support-container .support-menu,
+  .language-container .language-menu {
+    position: static; /* Stack normally in mobile flow */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: max-height 0.3s ease-out, opacity 0.3s ease, transform 0.3s ease;
+    max-height: 0; /* Hidden state: collapses content */
+    overflow: hidden; /* Hide overflow during collapse */
+    box-shadow: none;
+    background-color: transparent;
+    min-width: unset;
+    padding: 0; /* Remove padding from menu itself */
+  }
+
+  /* When dropdown is shown in mobile (adjust max-height for 4-5 items) */
+  .support-container .show-dropdown,
+  .language-container .show-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    max-height: 7.5rem; /* Adjusted max-height to display 4-5 items more consistently */
+    overflow-y: auto; /* Enable scrolling for dropdowns */
+    border-top: 1px solid #eee; /* Optional: separator for dropdown content */
+    border-bottom: 1px solid #eee; /* Optional: separator for dropdown content */
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem; /* Slightly less padding on very small screens */
+  }
+}

@@ -1,0 +1,193 @@
+
+
+.admin-complaint-view {
+padding: 2rem;
+max-width: 1000px; /* Limits the width of the whole page content */
+margin: 0 auto;
+}
+
+.header-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 1.5rem;
+}
+
+.page-title {
+font-size: 2rem;
+font-weight: 700;
+color: #1f2937; /* Gray-800 */
+}
+
+.refresh-button {
+background-color: #4f46e5; /* Indigo-600 */
+color: #ffffff;
+padding: 0.75rem 1.5rem;
+border-radius: 0.5rem;
+font-weight: 600;
+transition: background-color 0.2s ease;
+border: none;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.refresh-button:hover {
+background-color: #4338ca; /* Indigo-700 */
+}
+
+.refresh-button:disabled {
+background-color: #9ca3af; /* Gray-400 */
+cursor: not-allowed;
+}
+
+.refresh-icon {
+animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}
+
+.status-message {
+padding: 0.75rem;
+margin-bottom: 1.5rem;
+border-radius: 0.5rem;
+font-weight: 500;
+}
+
+.status-message.success {
+background-color: #d1fae5; /* Green-100 /
+color: #065f46; / Green-700 */
+}
+
+.status-message.error {
+background-color: #fee2e2; /* Red-100 /
+color: #991b1b; / Red-700 */
+}
+
+.complaint-card-list {
+display: grid;
+gap: 1.5rem;
+}
+
+.complaint-card {
+background-color: #ffffff;
+padding: 1.5rem;
+border-radius: 0.75rem;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* border-left: 5px solid #4f46e5; Removing the blue line */
+}
+
+.complaint-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.complaint-info-row {
+margin-bottom: 0.5rem;
+}
+
+.complaint-label {
+font-weight: 600;
+color: #4b5563; /* Gray-700 */
+}
+
+.complaint-file-link {
+display: inline-flex;
+align-items: center;
+color: #3b82f6; /* Blue-500 */
+text-decoration: none;
+font-weight: 500;
+margin-top: 0.5rem;
+}
+
+.complaint-file-link:hover {
+text-decoration: underline;
+}
+
+.status-text {
+font-weight: 600;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.status-text.resolved {
+color: #10b981; /* Green-600 */
+}
+
+.status-text.pending {
+color: #f59e0b; /* Yellow-500 */
+}
+
+.card-actions {
+margin-top: 1.5rem;
+padding-top: 1rem;
+border-top: 1px solid #e5e7eb;
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+align-items: center;
+}
+
+.assign-select {
+padding: 0.6rem 0.8rem;
+border-radius: 0.5rem;
+border: 1px solid #d1d5db;
+background-color: #f9fafb;
+font-size: 0.9rem;
+flex-grow: 1;
+cursor: pointer;
+}
+
+.assign-button {
+background-color: #10b981; /* Green-600 */
+color: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 0.5rem;
+font-weight: 600;
+transition: background-color 0.2s ease;
+border: none;
+cursor: pointer;
+}
+
+.assign-button:hover {
+background-color: #059669; /* Green-700 */
+}
+
+.cancel-button {
+color: #6b7280; /* Gray-500 */
+font-size: 0.875rem;
+text-decoration: underline;
+cursor: pointer;
+}
+
+.delete-button {
+background-color: #ef4444; /* Red-500 */
+color: #ffffff;
+padding: 0.6rem 1rem;
+border-radius: 0.5rem;
+font-weight: 600;
+transition: background-color 0.2s ease;
+border: none;
+cursor: pointer;
+}
+
+.delete-button:hover {
+background-color: #dc2626; /* Red-600 */
+}
+
+.no-complaints-message {
+text-align: center;
+margin-top: 2rem;
+color: #6b7280; /* Gray-500 */
+font-style: italic;
+}

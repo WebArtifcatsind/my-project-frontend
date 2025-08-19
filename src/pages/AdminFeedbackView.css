@@ -1,0 +1,115 @@
+/* ===== AdminFeedbackView.css ===== */
+
+/* Page container */
+.p-6 {
+  padding: 1.5rem;
+  background-color: #f4f7fb;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Headings */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+/* Feedback section layout */
+.mb-8, 
+div > .text-xl {
+  margin-bottom: 2rem;
+}
+
+/* Feedback grid layout */
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card style */
+.feedback-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feedback-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Feedback text */
+.feedback-card p {
+  margin: 0.3rem 0;
+  color: #555;
+}
+
+.feedback-card strong {
+  color: #333;
+}
+
+/* Buttons container */
+.feedback-card .flex {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Buttons styling */
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.bg-green-600 {
+  background-color: #16a34a;
+}
+.bg-green-600:hover {
+  background-color: #15803d;
+}
+
+.bg-red-600 {
+  background-color: #dc2626;
+}
+.bg-red-600:hover {
+  background-color: #b91c1c;
+}
+
+.bg-yellow-500 {
+  background-color: #f59e0b;
+}
+.bg-yellow-500:hover {
+  background-color: #d97706;
+}
+
+/* Status colors */
+.private-status {
+  color: #b91c1c;
+  font-weight: bold;
+}
+.public-status {
+  color: #15803d;
+  font-weight: bold;
+}
+
+/* Message styling */
+.text-green-600 {
+  background: #d1fae5;
+  color: #065f46;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: inline-block;
+}

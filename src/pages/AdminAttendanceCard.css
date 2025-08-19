@@ -1,0 +1,191 @@
+/* src/pages/AdminAttendanceCard.css */
+
+/*
+ * NOTE: The class name in your JSX is `.admin-view-card`, but the CSS is for `.admin-attendance-card`.
+ * I will use `.admin-view-card` to match your JSX for consistency.
+ */
+
+.admin-view-card {
+    background-color: #ffffff;
+    padding: 2.5rem; /* Increased padding */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 900px; /* Increased max-width for the overall card */
+}
+
+.admin-view-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.admin-card-title {
+    font-size: 1.8rem; /* Slightly larger title */
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 1rem;
+}
+
+.status-message {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    padding: 0.75rem;
+    border-radius: 6px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.status-message.success {
+    background-color: #10b981;
+}
+
+.status-message.error {
+    background-color: #ef4444;
+}
+
+.admin-attendance-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-control-select {
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+    font-size: 1rem;
+    flex-grow: 1;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.admin-control-select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* * This is the new CSS for the scrolling staff list. 
+ * I've targeted the select element by its name attribute to apply this style. 
+ */
+.admin-control-select[name="staff"] {
+    max-height: 10rem; /* Limits the visible height */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+.admin-attendance-table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.admin-attendance-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.admin-attendance-actions button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.admin-download-button {
+    background-color: #10b981;
+}
+
+.admin-download-button:hover {
+    background-color: #059669;
+}
+
+.admin-print-button {
+    background-color: #f97316;
+}
+
+.admin-print-button:hover {
+    background-color: #ea580c;
+}
+
+/* * This is the new CSS for the scrolling attendance table.
+ * A new div with this class needs to be wrapped around the <table> element in your JSX.
+ */
+.admin-attendance-table-scroll {
+    max-height: 25rem; /* This value controls how many rows are visible */
+    overflow-y: auto; /* Enables vertical scrolling */
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+.admin-attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.admin-attendance-table th,
+.admin-attendance-table td {
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+}
+
+.admin-attendance-table th {
+    background-color: #e5e7eb;
+    font-weight: 600;
+    color: #374151;
+    position: sticky; /* Keeps the header visible when scrolling */
+    top: 0;
+    z-index: 10;
+}
+
+.admin-attendance-table tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+.admin-status-select {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background-color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.admin-text-muted {
+    color: #9ca3af;
+}
+
+/* Attendance Status Colors */
+.status-present {
+    color: #10b981; /* Green */
+    font-weight: 600;
+}
+.status-absent {
+    color: #ef4444; /* Red */
+    font-weight: 600;
+}
+.status-holiday {
+    color: #6b7280; /* Gray */
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .admin-view-card {
+        padding: 1.5rem;
+    }
+    .admin-attendance-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

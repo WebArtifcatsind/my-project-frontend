@@ -1,0 +1,280 @@
+/* src/components/GeminiChatbot.css */
+
+/* Global Box-Sizing for consistent layout behavior */
+* {
+  box-sizing: border-box;
+}
+
+.gemini-chatbot-wrapper {
+  position: fixed; /* Make the wrapper fixed on the page */
+  bottom: 20px; /* Consistently position from the bottom for all screens */
+  right: 20px; /* Position from the right */
+  top: auto; /* Ensure 'top' property doesn't interfere */
+  z-index: 99999; /* Significantly higher z-index to ensure it's on top of everything */
+  display: flex;
+  flex-direction: column-reverse; /* This makes the chatbox appear above the icon */
+  align-items: flex-end; /* Align items to the right */
+  pointer-events: none; /* By default, prevent the wrapper from capturing events on its transparent parts */
+}
+
+.gemini-chatbot-icon {
+  width: 45px; /* Default small icon size */
+  height: 45px; /* Default small icon size */
+  background-color: #00b209;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin-top: 10px;
+  pointer-events: auto; /* Allow the icon to be interactive */
+}
+
+.gemini-chatbot-icon:hover {
+  background-color: #357abd;
+  transform: translateY(2px);
+}
+
+/* Ensure the SVG icon inside the button fills its parent */
+.gemini-chatbot-icon svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.gemini-chatbot-container {
+  max-width: 300px; /* Default smaller width for the chatbox */
+  width: 100%;
+  height: 380px; /* Default smaller height for the chatbox */
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* Transitions for opening/closing */
+  opacity: 0;
+  transform: scale(0.8);
+  transform-origin: bottom right;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.gemini-chatbot-container.open {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto; /* Allow interaction when open */
+}
+
+.gemini-chatbot-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+  padding: 15px;
+  font-size: 1.3em; /* Adjusted font size for title */
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+
+.gemini-chat-history {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.gemini-message {
+  margin-bottom: 8px; /* Slightly reduced message margin */
+  padding: 7px 10px; /* Adjusted padding */
+  border-radius: 9px;
+  max-width: 85%;
+  word-wrap: break-word;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07); /* Lighter shadow */
+  font-size: 0.9em; /* Smaller font size for messages */
+}
+
+.gemini-message.user {
+  background-color: #e0f7fa;
+  align-self: flex-end;
+  color: #004d40;
+}
+
+.gemini-message.bot {
+  background-color: #fce4ec;
+  align-self: flex-start;
+  color: #4a142c;
+}
+
+.gemini-loading-text {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+  padding: 5px;
+  font-size: 0.8em; /* Smaller loading text */
+}
+
+.gemini-input-form {
+  display: flex;
+  gap: 8px;
+  padding: 10px 15px;
+  border-top: 1px solid #eee;
+}
+
+.gemini-chat-input {
+  flex-grow: 1;
+  padding: 8px 10px; /* Adjusted padding */
+  border: 1px solid #ccc;
+  border-radius: 18px; /* Slightly less rounded */
+  font-size: 0.9em; /* Slightly smaller font */
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.gemini-chat-input:focus {
+  border-color: #4a90e2;
+}
+
+.gemini-send-button {
+  padding: 8px 15px; /* Adjusted padding */
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 18px; /* Slightly less rounded */
+  cursor: pointer;
+  font-size: 0.9em; /* Slightly smaller font */
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.gemini-send-button:hover {
+  background-color: #357abd;
+  transform: translateY(-1px);
+}
+
+.gemini-send-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Styles for predefined questions */
+.gemini-predefined-questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px; /* Reduced gap */
+  margin-top: 10px; /* Reduced margin */
+  padding: 8px; /* Reduced padding */
+  border-top: 1px solid #eee;
+  justify-content: center;
+}
+
+.gemini-predefined-questions p {
+  width: 100%;
+  text-align: center;
+  color: #666;
+  margin-bottom: 8px; /* Reduced margin */
+  font-style: italic;
+  font-size: 0.8em; /* Smaller font size */
+}
+
+.gemini-predefined-button {
+  background-color: #e0f7fa;
+  color: #004d40;
+  border: 1px solid #a7d9e0;
+  padding: 6px 10px; /* Adjusted padding */
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 0.8em; /* Smaller font size */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.gemini-predefined-button:hover {
+  background-color: #c8eff4;
+  transform: translateY(-1px);
+}
+
+.gemini-predefined-button:disabled {
+  background-color: #e0e0e0;
+  color: #a0a0a0;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/*
+    ========================================
+    Responsive Adjustments for all screen sizes
+    ========================================
+*/
+
+/* Styles for very large screens (e.g., above 1440px effective width) */
+@media (min-width: 1441px) {
+  .gemini-chatbot-container {
+    max-width: 350px; /* Standard size for very large displays */
+    height: 450px;
+  }
+  .gemini-chatbot-icon {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* Styles for smaller laptops and larger tablets (e.g., 1025px to 1440px effective width) */
+/* This range will now include your friend's effective resolution (1280x720) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .gemini-chatbot-container {
+    max-width: 320px; /* Slightly larger than default, but smaller than previous */
+    height: 400px;
+  }
+  .gemini-chatbot-icon {
+    width: 50px; /* Slightly larger icon than default */
+    height: 50px;
+  }
+}
+
+/* Styles for tablets (portrait and landscape), and small laptops (e.g., 769px to 1024px effective width) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .gemini-chatbot-container {
+    max-width: 300px; /* Consistent with default small size */
+    height: 380px;
+  }
+
+  .gemini-chatbot-icon {
+    width: 45px; /* Consistent with default icon size */
+    height: 45px;
+  }
+}
+
+/* Styles for mobile devices (up to 768px effective width) */
+@media (max-width: 768px) {
+  .gemini-chatbot-wrapper {
+    /* Position is already fixed, bottom/right are already set in default */
+    top: auto; /* Ensure 'top' property is explicitly unset on mobile too */
+  }
+
+  .gemini-chatbot-container {
+    max-width: calc(100vw - 40px); /* Stays responsive to screen width */
+    height: 65vh; /* Slightly reduced height for mobile */
+    transform-origin: bottom right;
+  }
+
+  .gemini-chatbot-icon {
+    width: 45px; /* Consistent small icon for mobile */
+    height: 45px;
+  }
+
+  .gemini-input-form {
+    flex-direction: column;
+  }
+
+  .gemini-chat-input, .gemini-send-button {
+    width: 100%;
+  }
+}

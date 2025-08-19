@@ -1,0 +1,82 @@
+/* Fixed container below navbar (assuming navbar height ~60px) */
+.staff-dashboard-container {
+  position: fixed;
+  top: 70px; /* Adjust if your navbar height is different */
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 1000;
+  padding: 20px 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Margin top on content so it won't be hidden under fixed container */
+.staff-dashboard-content-wrapper {
+  margin-top: 200px; /* Adjust based on header + tabs height */
+  padding: 20px 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dashboard-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 35px;
+}
+
+.staff-dashboard-tabs {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.staff-tab-button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #e5e7eb;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.staff-tab-button.active {
+  background-color: #2563eb;
+  color: white;
+}
+
+.staff-tab-button:hover {
+  background-color: #93c5fd;
+}
+
+.staff-dashboard-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Card styling for both training materials & complaints */
+.staff-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 220px;
+  text-align: left;
+}
+
+.staff-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mark-btn {
+  margin: 20px;
+  font-size: large;
+  background-color: #93c5fd;
+  box-shadow: 2px 2px 0px 0px;
+}

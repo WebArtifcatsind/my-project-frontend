@@ -1,0 +1,334 @@
+/* Footer Container */
+.footer {
+  background: linear-gradient(to right, #1f2937, #111827);
+  color: white;
+  padding-top: 2rem;
+  width: 100vw;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* About Us Section */
+.about-section {
+  background: transparent;
+  padding: 2rem 1rem; /* Added horizontal padding for mobile */
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem; /* Added horizontal padding */
+  text-align: center;
+}
+
+.about-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.about-header h1 {
+  font-size: 1.25rem; /* Reduced font size for mobile */
+  margin-right: 0rem;
+  color: #60a5fa;
+}
+
+.about-logo {
+  max-width: 160px;
+  height: auto;
+}
+
+.about-description {
+  color: #d1d5db;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1rem; /* Added padding for mobile */
+}
+
+/* Style for the logo in the 'Company Info' section */
+.company-logo {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Divider Line */
+.section-divider {
+  height: 1px;
+  background-color: #374151;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* Added horizontal padding for mobile */
+}
+
+/* Grid Layout */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2.5rem;
+}
+
+/* Footer Sections */
+.footer-section {
+  margin-bottom: 1.5rem;
+}
+
+.footer-heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #374151;
+}
+
+/* Company Info */
+.company-description {
+  margin-top: -35px;
+  color: #d1d5db;
+  line-height: 1.625;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  color: white;
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+}
+
+.social-icon.facebook {
+  background-color: #3b5998;
+}
+
+.social-icon.twitter {
+  background-color: #1da1f2;
+}
+
+.social-icon.linkedin {
+  background-color: #0077b5;
+}
+
+.social-icon.instagram {
+  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+
+/* Services Scroll Container */
+.services-scroll-container {
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Custom scrollbar */
+.services-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.services-scroll-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.services-scroll-container::-webkit-scrollbar-thumb {
+  background: #60a5fa;
+  border-radius: 10px;
+}
+
+.services-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+/* Services List */
+.services-list {
+  display: flex; /* Changed to flex for better wrapping on mobile */
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-link {
+  color: #d1d5db;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+}
+
+.footer-link:hover {
+  color: #60a5fa;
+}
+
+/* Contact Info */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: #d1d5db;
+  font-size: 0.9rem;
+}
+
+.contact-icon {
+  color: #60a5fa;
+  margin-top: 0.25rem;
+  min-width: 16px;
+}
+
+/* Newsletter */
+.newsletter-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.newsletter-input {
+  padding: 0.5rem 0.75rem;
+  background-color: #374151;
+  color: white;
+  border: none;
+  border-radius: 0.25rem 0 0 0.25rem;
+  width: 100%;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.newsletter-input:focus {
+  box-shadow: 0 0 0 1px #60a5fa;
+}
+
+.newsletter-button {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0 0.25rem 0.25rem 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.newsletter-button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Copyright */
+.copyright {
+  margin-top: 3rem;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.copyright-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.copyright-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap; /* Added for mobile wrapping */
+  justify-content: center;
+}
+
+.copyright-link {
+  color: #9ca3af;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+  white-space: nowrap; /* Prevents breaking on small screens */
+}
+
+.copyright-link:hover {
+  color: white;
+}
+
+/* Footer Bottom Space */
+.footer-bottom-space {
+  height: 2rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Media Queries                                */
+/* -------------------------------------------------------------------------- */
+
+/* Tablet & Larger Screens */
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .about-header h1 {
+    font-size: 1.4rem;
+  }
+  
+  .services-list {
+    display: flex; /* Restore flex for tablets and above */
+    flex-direction: column;
+  }
+  
+  .copyright-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .copyright-links {
+    margin-top: 0;
+  }
+}
+
+/* Large Screens & High-Resolution Laptops (1920x1080 @ 150% scaling) */
+@media (min-width: 1200px) {
+  .footer-container,
+  .about-container {
+    padding: 0 4rem; /* Pushes content further inward on larger screens */
+  }
+  
+  .footer-heading {
+    font-size: 1.25rem;
+  }
+  
+  .footer-link,
+  .contact-item,
+  .about-description,
+  .company-description,
+  .copyright {
+    font-size: 1rem; /* Slightly larger fonts for better readability */
+  }
+}

@@ -1,0 +1,322 @@
+/* Contact.css - Full Styles (light-mode locked + autofill-safe) */
+
+/* ───────────────────────────────────────────
+   LIGHT THEME LOCK + BASE SAFETY
+   ─────────────────────────────────────────── */
+.contact-page,
+.contact-page * {
+  color-scheme: light;                /* keep UI light even if OS is dark */
+  box-sizing: border-box;
+}
+
+/* Make sure form controls remain bright in any mode */
+.contact-form-container input,
+.contact-form-container textarea,
+.custom-dropdown-btn,
+.custom-dropdown-list,
+.phone-input-group input {
+  background-color: #fbfdff !important;   /* your original light bg */
+  color: #2d3748 !important;               /* dark text for readability */
+  caret-color: #2d3748;
+}
+
+/* Placeholder color */
+.contact-form-container input::placeholder,
+.contact-form-container textarea::placeholder {
+  color: #718096; /* subtle gray */
+  opacity: 1;
+}
+
+/* WebKit (Chrome/Safari/Edge) autofill */
+.contact-form-container input:-webkit-autofill,
+.contact-form-container textarea:-webkit-autofill,
+.contact-form-container input:-webkit-autofill:hover,
+.contact-form-container textarea:-webkit-autofill:hover,
+.contact-form-container input:-webkit-autofill:focus,
+.contact-form-container textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #2d3748 !important;
+  -webkit-box-shadow: 0 0 0 1000px #fbfdff inset !important; /* paint light bg */
+  box-shadow: 0 0 0 1000px #fbfdff inset !important;
+  transition: background-color 9999s ease-out 0s; /* avoid yellow flash */
+}
+
+/* Firefox autofill */
+.contact-form-container input:-moz-autofill,
+.contact-form-container textarea:-moz-autofill,
+.contact-form-container input:-moz-autofill:focus,
+.contact-form-container textarea:-moz-autofill:focus {
+  box-shadow: 0 0 0 1000px #fbfdff inset !important;
+  -moz-text-fill-color: #2d3748 !important;
+}
+
+/* Windows High Contrast / forced colors */
+@media (forced-colors: active) {
+  .contact-form-container,
+  .contact-form-container input,
+  .contact-form-container textarea,
+  .custom-dropdown-btn,
+  .custom-dropdown-list,
+  .phone-input-group input,
+  button[type="submit"] {
+    forced-color-adjust: none;
+  }
+  .contact-form-container { background: #ffffff; }
+  .contact-form-container input,
+  .contact-form-container textarea,
+  .phone-input-group input {
+    background: #ffffff;
+    color: #1f2937;
+    border: 1px solid #e2e8f0;
+  }
+  button[type="submit"] {
+    background: #4299e1;
+    color: #ffffff;
+  }
+}
+
+/* Keep this page light even if user prefers dark */
+@media (prefers-color-scheme: dark) {
+  .contact-page { background-color: #f0f4f8; }
+  .contact-form-container {
+    background-color: #ffffff;
+    color: #2d3748;
+  }
+  .contact-form-container input,
+  .contact-form-container textarea,
+  .phone-input-group input {
+    background-color: #fbfdff;
+    color: #2d3748;
+    border-color: #e2e8f0;
+  }
+}
+
+/* ───────────────────────────────────────────
+   ORIGINAL STYLES (kept) + minor polish
+   ─────────────────────────────────────────── */
+
+/* Base container for the whole page */
+.contact-page {
+  width: 100vw;
+  min-height: calc(100vh - 80px);
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f4f8;
+  user-select: none;
+  -webkit-user-select: none; /* Safari/older */
+}
+
+/* Main form container */
+.contact-form-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.contact-form-container h2 {
+  font-size: 2rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  color: #718096;
+  font-size: 0.95rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+/* Base style for all form inputs and textarea */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  background-color: #fbfdff; /* keep light */
+}
+
+/* Improve focus visibility (keyboard-friendly) */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #63b3ed;                 /* light blue border */
+  box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.35); /* soft focus ring */
+}
+
+/* Textarea specifics */
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Phone number specific styling */
+.phone-input-group {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+/* Custom Dropdown Button */
+.custom-dropdown-btn {
+  flex-shrink: 0;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  background-color: #f7f7f7;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 180px;
+  user-select: none;
+  position: relative;
+}
+
+.custom-dropdown-btn .dropdown-arrow {
+  font-size: 0.7rem;
+  color: #6c757d;
+  transition: transform 0.2s ease;
+  margin-left: 0.5rem;
+}
+
+.custom-dropdown-btn.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Custom Dropdown List */
+.custom-dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #fff !important;
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-height: 120px; /* ~4 items visible, then scroll */
+  overflow-y: auto;
+}
+
+.custom-dropdown-list li {
+  padding: 0.75rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #4a5568;
+  white-space: nowrap;
+}
+
+.custom-dropdown-list li:hover {
+  background-color: #f0f4f8;
+}
+
+/* Phone input field (right side) */
+.phone-input-group input {
+  flex-grow: 1;
+  border-radius: 0 6px 6px 0;
+  border-left: none; /* align with dropdown */
+}
+
+/* Focus ring for both dropdown + phone input */
+.phone-input-group input:focus,
+.custom-dropdown-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.35);
+  border-color: transparent;
+}
+
+/* Validation and button styles */
+.input-error {
+  border-color: #fc8181 !important;
+}
+
+.error-message {
+  color: #e53e3e;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Submit button */
+button[type="submit"] {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  margin-top: 1rem;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #3182ce;
+}
+
+button[type="submit"]:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Status banners */
+.form-message {
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-message.success {
+  background-color: #f0fff4;
+  color: #2f855a;
+  border: 1px solid #9ae6b4;
+}
+
+.form-message.error {
+  background-color: #fff5f5;
+  color: #c53030;
+  border: 1px solid #feb2b2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .contact-form-container {
+    max-width: 95%;
+    padding: 1.5rem 1rem;
+  }
+}

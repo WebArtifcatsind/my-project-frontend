@@ -1,0 +1,90 @@
+.p-6 {
+  padding: 1.5rem;
+  background-color: #f4f7fb;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.contact-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.contact-card p {
+  margin: 0.3rem 0;
+  color: #555;
+}
+
+.contact-card strong {
+  color: #333;
+}
+
+.timestamp {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+.flex {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.bg-blue-600 {
+  background-color: #2563eb;
+}
+.bg-blue-600:hover {
+  background-color: #1e40af;
+}
+
+.bg-red-600 {
+  background-color: #dc2626;
+}
+.bg-red-600:hover {
+  background-color: #b91c1c;
+}
+
+.text-green-600 {
+  background: #d1fae5;
+  color: #065f46;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.text-red-600 {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  display: inline-block;
+}
