@@ -22,7 +22,7 @@ const StaffDashboard = () => {
     setError("");
     try {
       const res = await fetch(
-        `https://my-project-backend.vercel.app/api/attendance/user/${user.id}?month=${selectedMonth}&year=${selectedYear}`,
+        `https://my-project-backend-tan.vercel.app/api/attendance/user/${user.id}?month=${selectedMonth}&year=${selectedYear}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

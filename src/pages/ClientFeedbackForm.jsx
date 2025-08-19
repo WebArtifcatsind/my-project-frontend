@@ -17,7 +17,7 @@ const ClientFeedbackForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://my-project-backend.vercel.app/api/client/feedback", data);
+      await axios.post("https://my-project-backend-tan.vercel.app/api/client/feedback", data);
       setStatus("✅ Feedback submitted successfully");
       setIsSuccess(true);
       setData({ name: "", email: "", message: "" });

@@ -8,7 +8,7 @@ const PublicTestimonials = () => {
 
   useEffect(() => {
     axios
-      .get("https://my-project-backend.vercel.app/api/client/public-feedbacks")
+      .get("https://my-project-backend-tan.vercel.app/api/client/public-feedbacks")
       .then((res) => setFeedbacks(res.data))
       .catch((err) => console.error("Error fetching public feedbacks", err));
   }, []);

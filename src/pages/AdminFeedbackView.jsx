@@ -10,7 +10,7 @@ const AdminFeedbackView = () => {
 
   const fetchFeedbacks = async () => {
     try {
-      const res = await axios.get("https://my-project-backend.vercel.app/api/client/feedbacks", {
+      const res = await axios.get("https://my-project-backend-tan.vercel.app/api/client/feedbacks", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setFeedbacks(res.data);
@@ -21,7 +21,7 @@ const AdminFeedbackView = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://my-project-backend.vercel.app/api/client/feedback/${id}`, {
+      await axios.delete(`https://my-project-backend-tan.vercel.app/api/client/feedback/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessage("✅ Feedback deleted successfully");
@@ -34,7 +34,7 @@ const AdminFeedbackView = () => {
   const markPublic = async (id) => {
     try {
       await axios.put(
-        `https://my-project-backend.vercel.app/api/client/feedback/public/${id}`,
+        `https://my-project-backend-tan.vercel.app/api/client/feedback/public/${id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -48,7 +48,7 @@ const AdminFeedbackView = () => {
   const handleUnmarkPublic = async (id) => {
     try {
       await axios.put(
-        `https://my-project-backend.vercel.app/api/client/feedback/unpublic/${id}`,
+        `https://my-project-backend-tan.vercel.app/api/client/feedback/unpublic/${id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

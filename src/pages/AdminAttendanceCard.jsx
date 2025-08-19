@@ -14,7 +14,7 @@ const AdminAttendanceCard = () => {
 
     const fetchStaff = async () => {
         try {
-            const res = await axios.get("https://my-project-backend.vercel.app/api/users/staff", {
+            const res = await axios.get("https://my-project-backend-tan.vercel.app/api/users/staff", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setStaffList(res.data);
@@ -33,7 +33,7 @@ const AdminAttendanceCard = () => {
         }
         try {
             const res = await axios.get(
-                `https://my-project-backend.vercel.app/api/attendance/user/${selectedStaffId}?month=${selectedMonth}&year=${selectedYear}`,
+                `https://my-project-backend-tan.vercel.app/api/attendance/user/${selectedStaffId}?month=${selectedMonth}&year=${selectedYear}`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
             setAttendanceData(res.data);
@@ -69,7 +69,7 @@ const AdminAttendanceCard = () => {
     const handleUpdate = async (userId, date, status) => {
         try {
             await axios.put(
-                "https://my-project-backend.vercel.app/api/attendance/update",
+                "https://my-project-backend-tan.vercel.app/api/attendance/update",
                 { userId, date, status },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

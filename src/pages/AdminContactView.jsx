@@ -10,7 +10,7 @@ const AdminContactView = () => {
 
   const fetchContacts = async () => {
     try {
-      const res = await axios.get('https://my-project-backend.vercel.app/api/contact', {
+      const res = await axios.get('https://my-project-backend-tan.vercel.app/api/contact', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setContacts(res.data.data);
@@ -25,7 +25,7 @@ const AdminContactView = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`https://my-project-backend.vercel.app/api/contact/${id}`, {
+      await axios.delete(`https://my-project-backend-tan.vercel.app/api/contact/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMessage('✅ Contact deleted successfully');
