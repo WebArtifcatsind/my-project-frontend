@@ -183,7 +183,7 @@ const Home = () => {
     useEffect(() => {
         const fetchTestimonials = async () => {
             try {
-                const res = await axios.get("http://localhost:5001/api/client/public-feedbacks");
+                const res = await axios.get("https://my-project-backend.vercel.app/api/client/public-feedbacks");
                 setTestimonials(res.data);
             } catch (err) {
                 console.error("Error fetching testimonials", err);

@@ -57,7 +57,7 @@ const StaffAttendance = ({
     if (!user?.id || !token) return;
     const fetchToday = async () => {
       try {
-        const res = await axios.get(`http://localhost:5001/api/attendance/today/${user.id}`, {
+        const res = await axios.get(`https://my-project-backend.vercel.app/api/attendance/today/${user.id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTodayStatus(res.data?.status || null);
@@ -82,7 +82,7 @@ const StaffAttendance = ({
     setMessage("");
     try {
       const res = await axios.post(
-        "http://localhost:5001/api/attendance/mark",
+        "https://my-project-backend.vercel.app/api/attendance/mark",
         { staffId: user.id },
         { headers: { Authorization: `Bearer ${token}` } }
       );

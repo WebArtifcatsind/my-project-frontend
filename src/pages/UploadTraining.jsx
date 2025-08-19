@@ -13,7 +13,7 @@ const UploadTraining = () => {
 
   const fetchFiles = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/training/all", {
+      const res = await axios.get("https://my-project-backend.vercel.app/api/training/all", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -36,7 +36,7 @@ const UploadTraining = () => {
     formData.append("file", file);
 
     try {
-      await axios.post("http://localhost:5001/api/training/upload", formData, {
+      await axios.post("https://my-project-backend.vercel.app/api/training/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
@@ -56,7 +56,7 @@ const UploadTraining = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5001/api/training/delete/${id}`, {
+      await axios.delete(`https://my-project-backend.vercel.app/api/training/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -96,7 +96,7 @@ const UploadTraining = () => {
           {files.length === 0 && <p className="text-gray-500">No training materials uploaded.</p>}
 
           {files.map((file) => {
-            const fileUrl = `http://localhost:5001/${file.path.replace(/\\/g, "/")}`;
+            const fileUrl = `https://my-project-backend.vercel.app/${file.path.replace(/\\/g, "/")}`;
             const ext = file.filename.split(".").pop().toLowerCase();
 
             return (

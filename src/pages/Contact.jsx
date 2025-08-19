@@ -106,7 +106,7 @@ const Contact = () => {
 
     try {
       const payload = { ...formData, phone: countryCode + formData.phone };
-      const response = await axios.post('http://localhost:5001/api/contact', payload);
+      const response = await axios.post('https://my-project-backend.vercel.app/api/contact', payload);
       if (response.status === 201) {
         setSubmitStatus('success');
         setModalTitle('Success!');

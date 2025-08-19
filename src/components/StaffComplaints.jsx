@@ -9,7 +9,7 @@ const StaffComplaints = ({ token }) => {
   const fetchAssignedComplaints = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5001/api/client/complaints/assigned",
+        "https://my-project-backend.vercel.app/api/client/complaints/assigned",
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setAssignedComplaints(res.data);
@@ -21,7 +21,7 @@ const StaffComplaints = ({ token }) => {
   const markComplaintResolved = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5001/api/client/complaint/resolve/${id}`,
+        `https://my-project-backend.vercel.app/api/client/complaint/resolve/${id}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -40,7 +40,7 @@ const StaffComplaints = ({ token }) => {
       return;
     try {
       await axios.delete(
-        `http://localhost:5001/api/client/complaints/staff/${id}`,
+        `https://my-project-backend.vercel.app/api/client/complaints/staff/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setAssignedComplaints((prev) => prev.filter((c) => c.id !== id));
@@ -88,7 +88,7 @@ const StaffComplaints = ({ token }) => {
 
               {comp.file && (
                 <a
-                  href={`http://localhost:5001/uploads/complaints/${comp.file}`}
+                  href={`https://my-project-backend.vercel.app/uploads/complaints/${comp.file}`}
                   download
                   className="complaint-file-link"
                 >

@@ -7,7 +7,7 @@ const StaffTraining = ({ token }) => {
   const [error, setError] = useState("");
 
   const getFileURL = (filename) =>
-    `http://localhost:5001/uploads/training/${filename}`;
+    `hhttps://my-project-backend.vercel.app/uploads/training/${filename}`;
 
   const isVideo = (f) => f.toLowerCase().endsWith(".mp4");
   const isImage = (f) => /\.(jpg|jpeg|png|avif)$/i.test(f);
@@ -16,7 +16,7 @@ const StaffTraining = ({ token }) => {
 
   const fetchMaterials = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/training/all", {
+      const res = await axios.get("https://my-project-backend.vercel.app/api/training/all", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMaterials(res.data);

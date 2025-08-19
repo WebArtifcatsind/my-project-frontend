@@ -61,7 +61,7 @@ const RegisterUserForm = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5001/api/auth/register",
+        "https://my-project-backend.vercel.app/api/auth/register",
         {
           ...formData,
           requesterRole: currentUser?.role,

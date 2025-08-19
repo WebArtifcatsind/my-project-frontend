@@ -18,7 +18,7 @@ const StaffRequestSlip = () => {
 
     try {
       await axios.post(
-        "http://localhost:5001/api/salary/request-slip",
+        "https://my-project-backend.vercel.app/api/salary/request-slip",
         { request_msg: message },
         {
           headers: {
@@ -37,7 +37,7 @@ const StaffRequestSlip = () => {
 
   const fetchMyRequests = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/staff/my-requests", {
+      const res = await axios.get("https://my-project-backend.vercel.app/api/staff/my-requests", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

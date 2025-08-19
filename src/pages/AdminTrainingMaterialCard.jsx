@@ -16,7 +16,7 @@ const AdminTrainingMaterialPage = () => {
     // Function to fetch all training files
     const fetchFiles = async () => {
         try {
-            const res = await axios.get("http://localhost:5001/api/training/all", {
+            const res = await axios.get("https://my-project-backend.vercel.app/api/training/all", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setFiles(res.data);
@@ -39,7 +39,7 @@ const AdminTrainingMaterialPage = () => {
         formData.append("file", file);
 
         try {
-            await axios.post("http://localhost:5001/api/training/upload", formData, {
+            await axios.post("https://my-project-backend.vercel.app/api/training/upload", formData, {
                 headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${token}` },
             });
             setUploadMessage({ text: "File uploaded successfully! ✅", type: "success" });
@@ -65,7 +65,7 @@ const AdminTrainingMaterialPage = () => {
         if (!fileToDeleteId) return;
 
         try {
-            await axios.delete(`http://localhost:5001/api/training/delete/${fileToDeleteId}`, {
+            await axios.delete(`hhttps://my-project-backend.vercel.app/api/training/delete/${fileToDeleteId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setFiles((prev) => prev.filter((f) => f.id !== fileToDeleteId));
@@ -123,7 +123,7 @@ const AdminTrainingMaterialPage = () => {
                 <div className="admin-file-list">
                     {files.length === 0 && <p className="admin-no-files-message">No training materials uploaded yet.</p>}
                     {files.map((file) => {
-                        const fileUrl = `http://localhost:5001/${file.path.replace(/\\/g, "/")}`;
+                        const fileUrl = `https://my-project-backend.vercel.app/${file.path.replace(/\\/g, "/")}`;
                         const ext = file.filename.split(".").pop().toLowerCase();
 
                         return (
