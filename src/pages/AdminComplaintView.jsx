@@ -15,7 +15,7 @@ const AdminComplaintView = () => {
   const fetchComplaints = async () => {
     setIsRefreshing(true);
     try {
-      const res = await axios.get("https://my-project-backend-tan.vercel.app/api/client/complaints", {
+      const res = await axios.get("https://webartifacts.in/api/client/complaints", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,7 +30,7 @@ const AdminComplaintView = () => {
 
   const fetchStaff = async () => {
     try {
-      const res = await axios.get("https://my-project-backend-tan.vercel.app/api/users/staff", {
+      const res = await axios.get("https://webartifacts.in/api/users/staff", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -46,7 +46,7 @@ const AdminComplaintView = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`https://my-project-backend-tan.vercel.app/api/client/complaint/${id}`, {
+      await axios.delete(`https://webartifacts.in/api/client/complaint/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -61,7 +61,7 @@ const AdminComplaintView = () => {
   const assignComplaint = async (complaintId) => {
     try {
         await axios.post(
-            `https://my-project-backend-tan.vercel.app/api/client/complaint/assign`,
+            `https://webartifacts.in/api/client/complaint/assign`,
             { 
                 complaintId, 
                 staffId: assignedStaffId,
@@ -139,7 +139,7 @@ const AdminComplaintView = () => {
               {c.file && (
                 <p className="complaint-info-row">
                   <a
-                    href={`https://my-project-backend-tan.vercel.app/uploads/complaints/${c.file}`}
+                    href={`https://webartifacts.in/uploads/complaints/${c.file}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="complaint-file-link"
