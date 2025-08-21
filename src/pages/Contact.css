@@ -302,8 +302,8 @@ button[type="submit"]:disabled {
 }
 
 .form-message.success {
-  background-color: #f0fff4;
-  color: #2f855a;
+  background-color: #f0fff4 !important;
+  color: #2f855a !important;
   border: 1px solid #9ae6b4;
 }
 

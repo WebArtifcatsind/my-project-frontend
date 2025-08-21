@@ -109,18 +109,18 @@ html, body {
     height: auto;
     margin-bottom: 1.2rem; /* Adjusted margin */
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(255, 196, 93, 0.875);
+    box-shadow: 0 4px 20px rgb(255, 255, 255);
 }
 
 .hero-content p {
     font-size: clamp(1.1rem, 2.2vw, 1.6rem); /* Adjusted clamp values for slightly larger text */
-    color: rgb(255, 255, 255);
+    color: rgb(200, 200, 200);
     max-width: 770px; /* Increased max-width */
     margin: 0 auto;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     line-height: 2.4;
     border-radius: 10px;
-    background-color: rgba(255, 204, 2, 0.103);
+    background-color: rgba(0, 0, 0, 0.566);
     padding: 7px;
 }
 
@@ -1648,7 +1648,8 @@ html, body {
         padding: 5px !important;
         margin-bottom: 0.5rem !important; /* Reduced margin */
     }
-    
+
+
     /* Testimonials section: Card sizing */
     .testimonials-header {
         margin-bottom: 2rem;
@@ -1699,8 +1700,9 @@ html, body {
         
     }
     .hero-logo-image {
+        margin-top: 4rem;
         max-width: 150px;
-        margin-bottom: 0.8rem;
+        margin-bottom: 0.2rem;
     }
     .hero-content p {
         font-size: 0.9rem;
@@ -1763,7 +1765,7 @@ html, body {
     .services-section .section-title {
         background-color: var(--primary-light) !important;
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1) !important;
-        
+        margin-bottom: 25px !important; 
     }
 
     .services-container {
@@ -1811,6 +1813,12 @@ html, body {
     .service-content-half p {
         font-size: 0.85rem;
     }
+
+    .services-container .pagination-arrow {
+        background: none !important;
+    }
+
+    
 
     /* Testimonials section: Further shrink */
     

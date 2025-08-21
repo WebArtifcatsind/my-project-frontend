@@ -36,6 +36,7 @@
   align-items: center;
   height: 100%;
   overflow: hidden;
+  margin-left: -5rem;
 }
 
 .brand:hover {
@@ -52,6 +53,7 @@
   align-items: center;
   gap: 1.5rem;
   /* Default desktop styles */
+  margin-right: -5rem;
 }
 
 .nav-link {
