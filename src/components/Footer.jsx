@@ -63,7 +63,7 @@ const Footer = () => {
                                 <a href="https://x.com/WebArtifacts" target="_blank" className="social-icon twitter">
                                     <FaTwitter size={20} />
                                 </a>
-                                <a href="#" target="_blank" className="social-icon linkedin">
+                                <a href="https://www.linkedin.com/company/webartifactsind/about/" target="_blank" className="social-icon linkedin">
                                     <FaLinkedin size={20} />
                                 </a>
                                 <a href="https://www.instagram.com/webartifacts_/" target="_blank" className="social-icon instagram">

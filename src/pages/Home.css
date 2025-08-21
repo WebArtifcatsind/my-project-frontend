@@ -105,11 +105,13 @@ html, body {
 }
 
 .hero-logo-image {
+    position: relative;
+    top: 60px;
     max-width: 380px; /* Increased logo size slightly */
     height: auto;
-    margin-bottom: 1.2rem; /* Adjusted margin */
+    /* margin-bottom: 1.2rem;  */
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgb(255, 255, 255);
+    /* box-shadow: 0 4px 20px rgb(255, 255, 255); */
 }
 
 .hero-content p {
@@ -120,8 +122,9 @@ html, body {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     line-height: 2.4;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.566);
+    background-color: rgba(0, 0, 0, 0.363);
     padding: 7px;
+    margin-top: 40px;
 }
 
 /* ===== Manage IT Section ===== */
