@@ -341,3 +341,39 @@
     padding: 0 1rem; /* Slightly less padding on very small screens */
   }
 }
+
+
+
+/* --- Responsive Styles --- */
+
+/* Mobile: Push logo and nav links inward */
+@media (max-width: 992px) {
+    /* ... existing mobile styles ... */
+    
+    .brand {
+        margin-left: 0.5rem; /* Adjust as needed to move the logo more inside */
+    }
+
+    .nav-links {
+        margin-right: 0; /* Reset the negative margin to prevent content from going off-screen */
+        padding-right: 1.5rem; /* Add padding to the right for spacing */
+    }
+}
+
+/* Large Screens (1920x1080 at 150% scale and similar) */
+/* The effective viewport is smaller, so we need to adjust the margins here. */
+@media (min-width: 1201px) {
+    .nav-container {
+        max-width: 1400px; /* Adjust max-width for a more spacious layout */
+        padding: 0 4rem; /* Increase padding to push content inwards on very wide screens */
+    }
+    
+    /* You can reset the negative margins here if they are in your base CSS */
+    .brand {
+        margin-left: 0;
+    }
+
+    .nav-links {
+        margin-right: 0;
+    }
+}
