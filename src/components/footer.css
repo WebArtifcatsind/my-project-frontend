@@ -8,10 +8,11 @@
   -webkit-user-select: none;
 }
 
+
 /* About Us Section */
 .about-section {
   background: transparent;
-  padding: 2rem 1rem; /* Added horizontal padding for mobile */
+  padding: 1rem 1rem; /* Added horizontal padding for mobile */
 }
 
 .about-container {
@@ -52,7 +53,8 @@
 .company-logo {
   max-width: 150px;
   height: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  margin-left: -1rem;
 }
 
 /* Divider Line */
@@ -91,11 +93,12 @@
 
 /* Company Info */
 .company-description {
-  margin-top: -35px;
+  margin-top: -25px;
   color: #d1d5db;
   line-height: 1.625;
   margin-bottom: 1.5rem;
   text-align: left;
+  text-align: justify;
 }
 
 .social-icons {
@@ -116,6 +119,7 @@
 
 .social-icon:hover {
   transform: translateY(-3px);
+  color: white;
 }
 
 .social-icon.facebook {

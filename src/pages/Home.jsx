@@ -141,6 +141,9 @@ const Home = () => {
 
     // State to determine if it's a mobile view
     const [isMobile, setIsMobile] = useState(false);
+    // Ref for the services grid to handle swiping
+    const servicesGridRef = useRef(null);
+    const touchStartX = useRef(null);
 
     // Effect to check screen width on mount and resize
     useEffect(() => {
@@ -156,14 +159,9 @@ const Home = () => {
         };
     }, []);
 
-    // Determine servicesPerPage dynamically based on screen size
-    // For mobile (<=480px), show 1 card per page. For larger screens, show 4.
+    // Services section will always show 4 cards on desktop and 1 on mobile
     const servicesPerPage = isMobile ? 1 : 4; 
-
-    // Calculate total pages for services based on the dynamic servicesPerPage
     const pageCount = Math.ceil(services.length / servicesPerPage);
-
-    // Slice the services array to display only the relevant cards for the current page
     const displayedServices = services.slice(
         currentPage * servicesPerPage,
         (currentPage + 1) * servicesPerPage
@@ -205,13 +203,40 @@ const Home = () => {
         setCurrentPage(pageIndex);
     };
 
+    // Services Swipe Handlers
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (e) => {
+        if (touchStartX.current === null) return;
+
+        const touchEndX = e.changedTouches[0].clientX;
+        const deltaX = touchEndX - touchStartX.current;
+
+        if (deltaX > 50) {
+            handlePrevPage();
+        } else if (deltaX < -50) {
+            handleNextPage();
+        }
+
+        touchStartX.current = null;
+    };
+
     // Testimonial scroll handlers (unrelated to services pagination)
     const handleTestimonialScroll = () => {
-        if (testimonialsRef.current) {
+        if (testimonialsRef.current && testimonialsRef.current.children.length > 0) {
+            // Get the exact width of a single testimonial card including its margins
+            const firstCard = testimonialsRef.current.children[0];
+            const cardWidth = firstCard.offsetWidth;
+
             const scrollPosition = testimonialsRef.current.scrollLeft;
-            const cardWidth = testimonialsRef.current.offsetWidth * 0.9;
-            const newIndex = Math.round(scrollPosition / cardWidth);
-            setCurrentTestimonialIndex(newIndex);
+            const newIndex = Math.floor(scrollPosition / cardWidth);
+            
+            // Update the state only if the index has actually changed
+            if (newIndex !== currentTestimonialIndex) {
+                setCurrentTestimonialIndex(newIndex);
+            }
         }
     };
 
@@ -229,7 +254,7 @@ const Home = () => {
     // Helper function to render pagination dots
     const renderPaginationDots = (totalItemsLength, currentIndex, goToFunction) => {
         const dots = [];
-        const numDots = Math.ceil(totalItemsLength / (totalItemsLength === services.length ? servicesPerPage : 4)); // Using 4 for testimonials pagination
+        const numDots = Math.ceil(totalItemsLength / (totalItemsLength === services.length ? servicesPerPage : 4)); // Reverting this part
         for (let i = 0; i < numDots; i++) {
             dots.push(
                 <button
@@ -366,12 +391,12 @@ const Home = () => {
                                         {
                                             number: "3",
                                             title: "Growth Planning",
-                                            description: "We architect scalable roadmaps that anticipate your future needs and market shifts."
+                                            description: "We architect the scalable roadmaps that anticipate your future needs and the market shifts perfectly ."
                                         },
                                         {
                                             number: "4",
                                             title: "Flawless Execution",
-                                            description: "Cutting-edge implementation with continuous optimization for sustained growth."
+                                            description: "Cutting-edge implementation with continuous optimization for sustained growth and developement ."
                                         }
                                     ].map((step, idx) => (
                                         <motion.div
@@ -439,8 +464,11 @@ const Home = () => {
                                 &lt;
                             </button>
 
-                            {/* No direct ref needed here as pagination is handled by slicing in React state */}
-                            <div className="services-grid"> 
+                            <div 
+                                className="services-grid"
+                                onTouchStart={handleTouchStart}
+                                onTouchEnd={handleTouchEnd}
+                            > 
                                 {displayedServices.map((service) => (
                                     <div
                                         key={service.title}
@@ -572,6 +600,7 @@ const Home = () => {
 };
 
 export default Home;
+
 
 
 

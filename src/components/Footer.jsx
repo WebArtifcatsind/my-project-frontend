@@ -29,13 +29,13 @@ const Footer = () => {
 
 
     return (
-        <footer id="about" className="footer">
+        <footer  className="footer">
             <div className="footer-inner-wrapper"> {/* Added this wrapper */}
                 {/* About Us Section */}
                 <div className="about-section">
                     <div className="about-container">
                         <div className="about-header">
-                            <h1>About Us</h1>
+                            <h1 id="about">About Us</h1>
                         </div>
                         <p className="about-description">
                             WebArtifacts is a leading IT solutions provider dedicated to helping businesses
@@ -54,7 +54,7 @@ const Footer = () => {
                         <div className="footer-section">
                             <img src={WebArtifactsLogo} alt="WebArtifacts Logo" className="company-logo" />
                             <p className="company-description">
-                                Delivering secure, scalable IT solutions to power your business growth and digital transformation.
+                                Delivering secure, scalable and affordable IT solutions to power your business growth and digital transformation.
                             </p>
                             <div className="social-icons">
                                 <a href="https://www.facebook.com/share/1GPnZfjhDJ/" target="_blank" className="social-icon facebook">
@@ -126,12 +126,12 @@ const Footer = () => {
                                 </div>
                                 <div className="contact-item">
                                     <FaClock className="contact-icon" />
-                                    <p>Mon-Sat: 10AM - 6PM</p>
+                                    <p>Monday to Saturday : 10AM - 6PM</p>
                                 </div>
                             </div>
                             
                             {/* Newsletter Subscription */}
-                            <div>
+                            {/* <div>
                                 <h5 className="newsletter-title">Subscribe to our newsletter</h5>
                                 <div className="newsletter-form">
                                     <input
@@ -143,7 +143,7 @@ const Footer = () => {
                                         Join
                                     </button>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 

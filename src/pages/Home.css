@@ -283,6 +283,8 @@ html, body {
     height: 5.5px; /* Increased hover height */
 }
 
+
+
 /* Animated Step Number */
 .step-number {
     display: inline-flex;
@@ -825,11 +827,13 @@ html, body {
     cursor: pointer;
     transition: all 0.2s ease;
     padding: 0;
+    outline: none !important;
 }
 
 .pagination-dot.active {
     background: #6366f1;
     transform: scale(1);
+    outline: none !important;
 }
 
 /* ===== Contact Preview Section ===== */
@@ -839,7 +843,6 @@ html, body {
     overflow: hidden;
     background: linear-gradient(115deg, #3a30e0 0%, #0baa78 100%);
     isolation: isolate;
-    
 }
 
 /* Dynamic wave background */
@@ -1704,10 +1707,11 @@ html, body {
     }
     .hero-logo-image {
         margin-top: 4rem;
-        max-width: 150px;
-        margin-bottom: 0.2rem;
+        max-width: 200px;
+        margin-bottom: 0rem;
     }
     .hero-content p {
+        margin-top: 5rem;
         font-size: 0.9rem;
         padding: 0.6rem;
     }
@@ -1728,7 +1732,7 @@ html, body {
     }
     .process-steps {
         grid-template-columns: 1fr; /* Revert to 1 column for very small screens */
-        gap: 1.8rem; /* Further reduced gap */
+        gap: 1.2rem; /* Further reduced gap */
         width: auto; /* Changed to auto to be responsive */
         height: auto; /* Changed to auto to be responsive */
         display: grid;
