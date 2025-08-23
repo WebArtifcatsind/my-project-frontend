@@ -6,6 +6,7 @@
   width: 100vw;
   user-select: none;
   -webkit-user-select: none;
+  z-index: 1001;
 }
 
 

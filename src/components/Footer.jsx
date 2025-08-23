@@ -1,12 +1,13 @@
 // D:\office\webartifacts\webartifacts-frontend\src\components\Footer.jsx
-import React from "react";
+import React, { forwardRef } from "react"; // Import forwardRef
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
 import "./footer.css";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import WebArtifactsLogo from '../heroimages/WebArtifacts_transparent white font.png';
 
-const Footer = () => {
+// Wrap the functional component with forwardRef
+const Footer = forwardRef((props, ref) => {
     const navigate = useNavigate();
     const services = [
     { title: "MANAGED IT SUPPORT", path: "/services/MANAGED%20IT%20SUPPORT" },
@@ -17,7 +18,7 @@ const Footer = () => {
     { title: "ERP & DOCUMENT MANAGEMENT", path: "/services/ERP%20%26%20DOCUMENT%20MANAGEMENT" },
     { title: "HELP DESK SUPPORT", path: "/services/HELP%20DESK%20SUPPORT" },
     { title: "BACKUP & DISASTER RECOVERY", path: "/services/BACKUP%20%26%20DISASTER%20RECOVERY" },
-    { title: "NETWORK & SERVER MANAGEMENT", path: "/services/NETWORK%20%26%20SERVER%20MANAGEMENT" },
+    { title: "NETWORK & SERVER MANAGEMENT", "path": "/services/NETWORK%20%26%20SERVER%20MANAGEMENT" },
     { title: "IT CONSULTING / VIRTUAL CIO", path: "/services/IT%20CONSULTING%20%2F%20VIRTUAL%20CIO" },
     { title: "VOIP / UNIFIED COMMUNICATION", path: "/services/VOIP%20%2F%20UNIFIED%20COMMUNICATION" },
     { title: "DATA ANALYTICS & DASHBOARDS", path: "/services/DATA%20ANALYTICS%20%26%20DASHBOARDS" },
@@ -27,10 +28,14 @@ const Footer = () => {
     { title: "HARDWARE PROCUREMENT & SETUP", path: "/services/HARDWARE%20PROCUREMENT%20%26%20SETUP" }
     ];
 
+    const handleCareersLinkClick = (event) => {
+        event.preventDefault(); // Prevents the default anchor tag behavior
+        navigate('/careers#careers-top'); // Programmatically navigates to the careers page and hash
+    };
 
     return (
-        <footer  className="footer">
-            <div className="footer-inner-wrapper"> {/* Added this wrapper */}
+        <footer className="footer" ref={ref}> {/* Attach the ref to the footer element */}
+            <div className="footer-inner-wrapper">
                 {/* About Us Section */}
                 <div className="about-section">
                     <div className="about-container">
@@ -96,10 +101,11 @@ const Footer = () => {
                                 <li className="footer-link">Case Studies</li>
                                 <li className="footer-link">Blog</li>
                                 <li className="footer-link">
-                                  <Link to="/careers#careers-top">Careers</Link>
+                                    <a href="/careers#careers-top" onClick={handleCareersLinkClick}>
+                                        Careers
+                                    </a>
                                 </li>
                                 <li className="footer-link">
-                                    {/* The link is changed here to include the hash */}
                                     <Link to="/login#top" >
                                         LOGIN
                                     </Link>
@@ -129,21 +135,6 @@ const Footer = () => {
                                     <p>Monday to Saturday : 10AM - 6PM</p>
                                 </div>
                             </div>
-                            
-                            {/* Newsletter Subscription */}
-                            {/* <div>
-                                <h5 className="newsletter-title">Subscribe to our newsletter</h5>
-                                <div className="newsletter-form">
-                                    <input
-                                        type="email"
-                                        placeholder="Your email"
-                                        className="newsletter-input"
-                                    />
-                                    <button className="newsletter-button">
-                                        Join
-                                    </button>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
 
@@ -161,9 +152,9 @@ const Footer = () => {
                         <div className="footer-bottom-space"></div>
                     </div>
                 </div>
-            </div> {/* Closes footer-inner-wrapper */}
+            </div>
         </footer>
     );
-};
+});
 
 export default Footer;

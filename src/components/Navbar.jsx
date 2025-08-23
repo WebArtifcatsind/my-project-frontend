@@ -5,7 +5,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
 import logoImage from '../navimages/black-WebArtifacts_transparent_final.png';
 
-const Navbar = () => {
+const Navbar = ({ footerRef }) => { // Accept footerRef as a prop
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -112,6 +112,15 @@ const Navbar = () => {
     setShowMobileMenu(false);
   };
 
+  // NEW: handleAboutClick uses the footerRef
+  const handleAboutClick = (e) => {
+    e.preventDefault();
+    if (footerRef && footerRef.current) {
+      footerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    handleNavLinkClick(); // Close mobile menu/dropdowns
+  };
+
   return (
     <nav className={`navbar ${scrolled ? 'shadow-lg' : ''}`}>
       <div className="nav-container">
@@ -152,7 +161,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* NEW: Careers link (to the right of About Us) */}
           <Link
             to="/careers#careers-top"
             className="nav-link"
@@ -161,20 +169,15 @@ const Navbar = () => {
             CAREERS
           </Link>
 
+          {/* UPDATED: About Us link now uses handleAboutClick */}
           <Link
             to="#"
             className="nav-link"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-              handleNavLinkClick();
-            }}
+            onClick={handleAboutClick}
           >
             ABOUT US
           </Link>
-
           
-
           {user ? (
             <>
               {(user.role === 'admin' || user.role === 'Admin') && (

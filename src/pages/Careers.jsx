@@ -1,4 +1,6 @@
+// D:\office\webartifacts\webartifacts-frontend\src\components\Careers.jsx
 import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom"; // Import useLocation
 import "./Careers.css";
 import Logo from "../heroimages/WebArtifacts_transparent white font.png";
 
@@ -13,22 +15,37 @@ const setStickyOffsets = () => {
 };
 
 /* smooth scroll to hash anchors */
-const scrollToHash = () => {
-  if (window.location.hash) {
-    const el = document.querySelector(window.location.hash);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+const scrollToHash = (hash) => {
+  if (hash) {
+    const el = document.querySelector(hash);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 };
 
 const Careers = () => {
+  const location = useLocation();
+
   useEffect(() => {
-    // initial measurements
+    // This effect ensures we scroll to the hash on initial load or navigation
+    if (location.hash) {
+      setTimeout(() => {
+        scrollToHash(location.hash);
+      }, 100);
+    } else {
+      // If there's no hash, scroll to the top of the page.
+      window.scrollTo(0, 0);
+    }
+  }, [location]); // Re-run effect when the location (including hash) changes
+
+  useEffect(() => {
+    // Your existing code for sticky navigation and resize observers
     setStickyOffsets();
 
     const navbar = document.querySelector(".navbar");
     const quicknav = document.querySelector(".careers-quicknav");
 
-    // observe resizing of navbar/quicknav
     const ro1 = navbar ? new ResizeObserver(setStickyOffsets) : null;
     const ro2 = quicknav ? new ResizeObserver(setStickyOffsets) : null;
     ro1?.observe(navbar);
@@ -37,7 +54,6 @@ const Careers = () => {
     const onResize = () => setStickyOffsets();
     window.addEventListener("resize", onResize);
 
-    // --- JS fallback to force "fixed" when sticky is blocked by a parent ---
     let fixThreshold = 0;
     const spacerId = "quicknav-spacer";
     const ensureThreshold = () => {
@@ -45,10 +61,9 @@ const Careers = () => {
       const rect = quicknav.getBoundingClientRect();
       const scrollTop = window.scrollY || window.pageYOffset;
       const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--nav-h")) || 64;
-      fixThreshold = rect.top + scrollTop - navH; // when scroll surpasses this → fix it
+      fixThreshold = rect.top + scrollTop - navH;
     };
 
-    // insert a spacer after quicknav to avoid content jump when fixed
     const ensureSpacer = () => {
       if (!quicknav) return null;
       let spacer = document.getElementById(spacerId);
@@ -62,7 +77,7 @@ const Careers = () => {
     };
 
     const spacer = ensureSpacer();
-    ensureThreshold(); // compute initial threshold
+    ensureThreshold();
 
     const onScroll = () => {
       if (!quicknav) return;
@@ -73,19 +88,14 @@ const Careers = () => {
 
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    // recompute threshold when window resizes/content shifts
-    const recompute = () => { setStickyOffsets(); ensureThreshold(); onScroll(); };
+    const recompute = () => {
+      setStickyOffsets();
+      ensureThreshold();
+      onScroll();
+    };
     window.addEventListener("orientationchange", recompute);
     window.addEventListener("load", recompute);
 
-    // do initial hash scroll after measuring
-    scrollToHash();
-
-    // react to hash changes on page
-    const onHashChange = () => scrollToHash();
-    window.addEventListener("hashchange", onHashChange);
-
-    // kick once
     onScroll();
 
     return () => {
@@ -93,7 +103,6 @@ const Careers = () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("orientationchange", recompute);
       window.removeEventListener("load", recompute);
-      window.removeEventListener("hashchange", onHashChange);
       ro1?.disconnect();
       ro2?.disconnect();
     };
@@ -105,13 +114,13 @@ const Careers = () => {
       <section className="careers-hero">
         <div className="careers-hero-inner">
           <h1 className="careers-title">
-      JOIN{" "}
-      <img
-        src={Logo}
-        alt="WebArtifacts"
-        className="brand-inline on-dark"
-      />
-    </h1>
+            JOIN{" "}
+            <img
+              src={Logo}
+              alt="WebArtifacts"
+              className="brand-inline on-dark"
+            />
+          </h1>
 
           <p className="careers-subtitle">
             Build reliable systems, beautiful UIs, resilient data layers, and
