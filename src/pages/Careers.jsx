@@ -121,7 +121,6 @@ const Careers = () => {
               className="brand-inline on-dark"
             />
           </h1>
-
           <p className="careers-subtitle">
             Build reliable systems, beautiful UIs, resilient data layers, and
             world-class delivery pipelines with us.
@@ -141,11 +140,15 @@ const Careers = () => {
       <main className="careers-content">
         {/* 1) PYTHON DEVELOPER */}
         <section id="python-dev" className="role-section">
-          <header className="role-header">
-            <h2 className="role-title">Python Developer</h2>
-            <p className="role-meta">Full-time · 3–7 years · Remote/Hybrid</p>
-          </header>
-
+          {/* New wrapper for header and button */}
+          <div className="role-header-wrapper">
+            <header className="role-header">
+              <h2 className="role-title">Python Developer</h2>
+              <p className="role-meta">Full-time · 3–7 years · Remote/Hybrid</p>
+            </header>
+            {/* Moved the button here */}
+            <a href="/contact#contact-form" className="apply-btn">Apply Now</a>
+          </div>
           <div className="role-grid">
             <article className="role-card">
               <h3 className="card-title">Must-have Skills</h3>
@@ -186,17 +189,21 @@ const Careers = () => {
                 <li>Troubleshoot production issues; monitor performance</li>
                 <li>Collaborate with frontend, DevOps, and product teams</li>
               </ul>
-              <a href="/contact#contact-form" className="apply-btn">Apply Now</a>
             </article>
           </div>
         </section>
 
         {/* 2) FRONTEND DEVELOPER (React & Vue) */}
         <section id="frontend" className="role-section">
-          <header className="role-header">
-            <h2 className="role-title">Frontend Developer</h2>
-            <p className="role-meta">Full-time · 2–6 years · Remote/Hybrid</p>
-          </header>
+          {/* New wrapper for header and button */}
+          <div className="role-header-wrapper">
+            <header className="role-header">
+              <h2 className="role-title">Frontend Developer</h2>
+              <p className="role-meta">Full-time · 2–6 years · Remote/Hybrid</p>
+            </header>
+            {/* Moved the button here */}
+            <a href="/contact#contact-form" className="apply-btn">Apply Now</a>
+          </div>
 
           <div className="role-subtitle">i) React</div>
           <div className="role-grid">
@@ -234,7 +241,6 @@ const Careers = () => {
                 <li>Maintain consistency via design systems & Storybook</li>
                 <li>Write tests and participate in code reviews</li>
               </ul>
-              <a href="/contact#contact-form" className="apply-btn">Apply Now</a>
             </article>
           </div>
 
@@ -272,17 +278,21 @@ const Careers = () => {
                 <li>Maintain component libraries & documentation</li>
                 <li>Ensure a11y and performance budgets are met</li>
               </ul>
-              <a href="/contact#contact-form" className="apply-btn">Apply Now</a>
             </article>
           </div>
         </section>
 
         {/* 3) POSTGRES DBA */}
         <section id="postgres-dba" className="role-section">
-          <header className="role-header">
-            <h2 className="role-title">PostgreSQL Database Administrator</h2>
-            <p className="role-meta">Full-time · 4–10 years · Remote/Hybrid</p>
-          </header>
+          {/* New wrapper for header and button */}
+          <div className="role-header-wrapper">
+            <header className="role-header">
+              <h2 className="role-title">PostgreSQL Database Administrator</h2>
+              <p className="role-meta">Full-time · 4–10 years · Remote/Hybrid</p>
+            </header>
+            {/* Moved the button here */}
+            <a href="/contact#contact-form" className="apply-btn">Apply Now</a>
+          </div>
 
           <div className="role-grid">
             <article className="role-card">
@@ -320,17 +330,21 @@ const Careers = () => {
                 <li>Monitor with metrics/logs; automate routine ops</li>
                 <li>Plan & execute upgrades and migrations</li>
               </ul>
-              <a href="/contact#contact-form" className="apply-btn">Apply Now</a>
             </article>
           </div>
         </section>
 
         {/* 4) DEVOPS */}
         <section id="devops" className="role-section">
-          <header className="role-header">
-            <h2 className="role-title">DevOps Engineer</h2>
-            <p className="role-meta">Full-time · 3–8 years · Remote/Hybrid</p>
-          </header>
+          {/* New wrapper for header and button */}
+          <div className="role-header-wrapper">
+            <header className="role-header">
+              <h2 className="role-title">DevOps Engineer</h2>
+              <p className="role-meta">Full-time · 3–8 years · Remote/Hybrid</p>
+            </header>
+            {/* Moved the button here */}
+            <a href="/contact#contact-form" className="apply-btn">Apply Now</a>
+          </div>
 
           <div className="role-grid">
             <article className="role-card">
@@ -367,7 +381,6 @@ const Careers = () => {
                 <li>Automate operations, cost controls, and backup/DR</li>
                 <li>Partner with eng teams on release strategies & reliability</li>
               </ul>
-              <a href="/contact#contact-form" className="apply-btn">Apply Now</a>
             </article>
           </div>
         </section>
