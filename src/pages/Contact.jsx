@@ -45,6 +45,10 @@ const Contact = () => {
   const [modalTitle, setModalTitle] = useState('');
   const [modalMessage, setModalMessage] = useState('');
 
+  // Add the regex for name validation
+  const nameRegex = /^[a-zA-Z\s]*$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   useEffect(() => {
     if (location.hash) {
       const element = document.getElementById(location.hash.substring(1));
@@ -55,11 +59,10 @@ const Contact = () => {
   }, [location.hash]);
 
   const validateField = (name, value) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     switch (name) {
       case 'name':
         if (!value.trim()) return 'Name is required';
+        if (!nameRegex.test(value)) return 'Name can only contain letters and spaces.';
         if (value.length < 2) return 'Name must be at least 2 characters';
         return '';
       case 'email':
@@ -68,10 +71,8 @@ const Contact = () => {
         return '';
       case 'phone':
         if (!value) return 'Phone number is required';
-        // Client-side validation for phone number length after country code
-        // This acts as an immediate feedback before server validation
         if (countryCode === '+91' && value.length !== 10) return 'For India (+91), please enter exactly 10 digits after the country code.';
-        if (value.length < 6) return 'Must be a valid phone number, at least 6 digits.'; // General length for other codes
+        if (value.length < 6) return 'Must be a valid phone number, at least 6 digits.';
         if (!/^\d+$/.test(value)) return 'Only numbers allowed after the country code.';
         return '';
       case 'message':
@@ -99,7 +100,7 @@ const Contact = () => {
       const messages = Object.values(newErrors).join('\n');
       setModalMessage(messages);
       setShowErrorModal(true);
-      return; // Stop submission if client-side validation fails
+      return;
     }
 
     setIsSubmitting(true);
@@ -125,8 +126,7 @@ const Contact = () => {
       setIsSubmitting(false);
 
       if (err.response && err.response.status === 400 && err.response.data && err.response.data.errors) {
-        // Handle server-side validation errors
-        setSubmitStatus('error'); // or 'server_validation_error'
+        setSubmitStatus('error');
         setModalTitle('Server-Side Validation Failed');
         const serverErrors = err.response.data.errors;
         let errorMessage = 'Please correct the following issues:\n';
@@ -137,10 +137,8 @@ const Contact = () => {
         }
         setModalMessage(errorMessage);
         setShowErrorModal(true);
-        // Optionally, update client-side errors state to highlight fields
         setErrors(serverErrors);
       } else {
-        // Handle other network or server errors
         setSubmitStatus('error');
         setModalTitle('Submission Failed');
         setModalMessage(err.response?.data?.message || 'An unexpected error occurred. Please try again later.');
@@ -154,14 +152,12 @@ const Contact = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    // Clear error for the field as user types
-    setErrors(prevErrors => ({ ...prevErrors, [name]: '' }));
+    setErrors(prevErrors => ({ ...prevErrors, [name]: validateField(name, value) }));
   };
 
   const handleCountryCodeChange = (code) => {
     setCountryCode(code);
     setIsDropdownOpen(false);
-    // Re-validate phone field when country code changes if there was an existing error
     setErrors(prevErrors => ({
       ...prevErrors,
       phone: validateField('phone', formData.phone)
@@ -182,14 +178,12 @@ const Contact = () => {
           <p className="form-subtitle">We'll get back to you soon</p>
         </div>
 
-        {/* Existing success/general error messages (can be replaced by modal) */}
         {submitStatus === 'success' && !showErrorModal && (
           <div className="form-message success">
             Message sent successfully!
           </div>
         )}
 
-        {/* The new Modal for displaying errors */}
         {showErrorModal && (
           <div className="modal-overlay">
             <div className="modal-content">
@@ -200,7 +194,7 @@ const Contact = () => {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} noValidate> {/* Added noValidate attribute here */}
+        <form onSubmit={handleSubmit} noValidate>
           <div className="form-group">
             <label htmlFor="name">Name *</label>
             <input
@@ -255,7 +249,6 @@ const Contact = () => {
                 value={formData.phone}
                 onChange={handleInputChange}
                 className={errors.phone ? 'input-error' : ''}
-                // Only allow numbers to be typed after the country code
                 pattern="[0-9]*"
                 inputMode="numeric"
               />

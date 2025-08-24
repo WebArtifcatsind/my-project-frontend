@@ -9,6 +9,17 @@
   color-scheme: light;
 }
 
+
+.form-group .status-error{
+  background-color: rgb(254, 254, 255);
+  color: red;
+  font-size: 13px;
+  /* border-radius: 5px; */
+  /* padding-left: 4px; */
+  /* padding-bottom: 2px; */
+}
+
+
 /* Ensure inputs/textareas remain light */
 .form-input,
 .form-textarea {
