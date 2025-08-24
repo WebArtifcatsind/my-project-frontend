@@ -183,7 +183,7 @@ const Home = () => {
     useEffect(() => {
         const fetchTestimonials = async () => {
             try {
-                const res = await axios.get("http://lapi.webartifacts.in/api/client/public-feedbacks");
+                const res = await axios.get("http://api.webartifacts.in/api/client/public-feedbacks");
                 setTestimonials(res.data);
             } catch (err) {
                 console.error("Error fetching testimonials", err);
