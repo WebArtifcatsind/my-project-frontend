@@ -778,8 +778,46 @@ html, body {
     color: #718096;
 }
 
+
+.testimonials-navigation {
+ display: flex;
+ justify-content: center; /* Center the arrows */
+ gap: 1rem; /* Add some space between the arrows */
+ margin-top: 1.5rem; /* Add some space above the arrows */
+ z-index: 10; /* Ensure they are above other elements */
+}
+
+.testimonials-section .pagination-arrow {
+ /* You can keep the existing styles for the arrow buttons */
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 44px;
+ height: 44px;
+ background: #ffffff;
+ border-radius: 50%;
+ border: 1px solid rgba(0, 0, 0, 0.1);
+ color: #6366f1;
+ font-size: 1.5rem;
+ cursor: pointer;
+ box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+ transition: all 0.3s ease;
+ opacity: 1 !important; /* Ensure they are visible */
+ position: static !important; /* Remove absolute positioning */
+ transform: none !important; /* Remove any transforms */
+ left: auto !important; /* Reset left positioning */
+ right: auto !important; /* Reset right positioning */
+}
+
+.testimonials-section .pagination-arrow:hover {
+ transform: scale(1.05) !important;
+}
+
+
+
+
 .testimonials-pagination {
-    display: flex;
+    display: none;
     justify-content: center;
     gap: 0.45rem;
     margin-top: 1.8rem;
@@ -802,6 +840,8 @@ html, body {
     transform: scale(1);
     outline: none !important;
 }
+
+
 
 /* ===== Contact Preview Section ===== */
 .contact-preview-section {
@@ -1519,7 +1559,10 @@ html, body {
     }
 }
 
+/* min tablet */
+
 @media (max-width: 768px) {
+
     .hero-section {
         height: 400px;
         margin-bottom: 0;
@@ -1657,7 +1700,11 @@ html, body {
     }
 }
 
+
+/* mobile responsive styles */
+
 @media (max-width: 480px) {
+
     .hero-section {
         height: 350px;
         
@@ -1788,6 +1835,45 @@ html, body {
     .testimonial-author-company {
         font-size: 0.7rem;
     }
+
+
+
+ .testimonials-navigation {
+ display: flex;
+ justify-content: center; /* Center the arrows */
+ gap: 5rem; /* Add some space between the arrows */
+ margin-top: 1.5rem; /* Add some space above the arrows */
+ z-index: 10; /* Ensure they are above other elements */
+}
+
+.testimonials-section .pagination-arrow {
+ /* You can keep the existing styles for the arrow buttons */
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 44px;
+ height: 44px;
+ background: #ffffff;
+ border-radius: 50%;
+ border: 1px solid rgba(0, 0, 0, 0.1);
+ color: #6366f1;
+ font-size: 1.5rem;
+ cursor: pointer;
+ box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+ transition: all 0.3s ease;
+ opacity: 1 !important; /* Ensure they are visible */
+ position: static !important; /* Remove absolute positioning */
+ transform: none !important; /* Remove any transforms */
+ left: auto !important; /* Reset left positioning */
+ right: auto !important; /* Reset right positioning */
+}
+
+.testimonials-section .pagination-arrow:hover {
+ transform: scale(1.05) !important;
+}
+
+
+
     
     .contact-preview-content {
         padding: 1.5rem;

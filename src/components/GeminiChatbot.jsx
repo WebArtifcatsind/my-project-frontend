@@ -113,7 +113,7 @@ const GeminiChatbot = () => {
               <strong>{msg.type === 'user' ? 'You:' : 'WebArtifacts:'}</strong> {msg.message}
             </div>
           ))}
-          {isLoading && <div className="gemini-loading-text">WebArtifacts is thinking...</div>}
+          {isLoading && <div className="gemini-loading-text">Processing...</div>}
 
           {/* Display predefined questions if chat history is empty and not currently loading */}
           {chatHistory.length === 0 && !isLoading && (

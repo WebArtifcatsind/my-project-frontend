@@ -30,548 +30,1192 @@ import aiAutomation from '../homeimages/ai-automation.png';
 import hardwareProcurement from '../homeimages/hardware-procurement.png';
 
 const serviceImages = {
-    'managed-it': managedIT,
-    'cloud-deployment': cloudDeployment,
-    'custom-software': customSoftware,
-    'cybersecurity': cybersecurity,
-    'web-app-development': webAppDevelopment,
-    'erp': erp,
-    'help-desk': helpDesk,
-    'backup-recovery': backupRecovery,
-    'network-server': networkServer,
-    'it-consulting': itConsulting,
-    'voip': voip,
-    'data-analytics': dataAnalytics,
-    'remote-work': remoteWork,
-    'devops': devops,
-    'ai-automation': aiAutomation,
-    'hardware-procurement': hardwareProcurement,
+    'managed-it': managedIT,
+    'cloud-deployment': cloudDeployment,
+    'custom-software': customSoftware,
+    'cybersecurity': cybersecurity,
+    'web-app-development': webAppDevelopment,
+    'erp': erp,
+    'help-desk': helpDesk,
+    'backup-recovery': backupRecovery,
+    'network-server': networkServer,
+    'it-consulting': itConsulting,
+    'voip': voip,
+    'data-analytics': dataAnalytics,
+    'remote-work': remoteWork,
+    'devops': devops,
+    'ai-automation': aiAutomation,
+    'hardware-procurement': hardwareProcurement,
 };
 
 const services = [
-    {
-        title: "Managed IT Support",
-        image: "managed-it",
-        description: "We provide complete IT infrastructure management, support, and desktop services for businesses."
-    },
-    {
-        title: "Cloud Deployment & Backup",
-        image: "cloud-deployment",
-        description: "Expert deployment and backup on AWS, Azure, and GCP with disaster recovery."
-    },
-    {
-        title: "Custom Software Development",
-        image: "custom-software",
-        description: "We build tailored software solutions using React, Node.js, and modern stacks."
-    },
-    {
-        title: "Cybersecurity Consulting",
-        image: "cybersecurity",
-        description: "Our experts secure your infrastructure with audits, firewalls, and best practices."
-    },
-    {
-        title: "Website & App Development",
-        image: "web-app-development",
-        description: "Responsive and scalable websites or mobile apps using the latest tech."
-    },
-    {
-        title: "ERP & Document Management",
-        image: "erp",
-        description: "Digitize all your workflows and documents into one smart ERP system."
-    },
-    {
-        title: "Help Desk Support",
-        image: "help-desk",
-        description: "24/7 help desk support to assist employees and clients with technical queries."
-    },
-    {
-        title: "Backup & Disaster Recovery",
-        image: "backup-recovery",
-        description: "Automated backup, failover systems, and disaster recovery planning."
-    },
-    {
-        title: "Network & Server Management",
-        image: "network-server",
-        description: "Secure and optimized network/server infrastructure with regular maintenance."
-    },
-    {
-        title: "IT Consulting / Virtual CIO",
-        image: "it-consulting",
-        description: "Strategic technology consulting and virtual CIO services for long-term growth."
-    },
-    {
-        title: "VoIP / Unified Communication",
-        image: "voip",
-        description: "Voice-over-IP systems and unified communication solutions for remote work."
-    },
-    {
-        title: "Data Analytics & Dashboards",
-        image: "data-analytics",
-        description: "Turn raw data into actionable insights using interactive dashboards."
-    },
-    {
-        title: "Remote Work Enablement",
-        image: "remote-work",
-        description: "Tools and infrastructure to support secure and productive remote work."
-    },
-    {
-        title: "DevOps & CI/CD Pipelines",
-        image: "devops",
-        description: "Automate your development and deployment using modern DevOps pipelines."
-    },
-    {
-        title: "AI & Automation Solutions",
-        image: "ai-automation",
-        description: "Leverage artificial intelligence to automate workflows and decision-making."
-    },
-    {
-        title: "Hardware Procurement & Setup",
-        image: "hardware-procurement",
-        description: "Procurement, installation, and maintenance of hardware for your company."
-    }
+    {
+        title: "Managed IT Support",
+        image: "managed-it",
+        description: "We provide complete IT infrastructure management, support, and desktop services for businesses."
+    },
+    {
+        title: "Cloud Deployment & Backup",
+        image: "cloud-deployment",
+        description: "Expert deployment and backup on AWS, Azure, and GCP with disaster recovery."
+    },
+    {
+        title: "Custom Software Development",
+        image: "custom-software",
+        description: "We build tailored software solutions using React, Node.js, and modern stacks."
+    },
+    {
+        title: "Cybersecurity Consulting",
+        image: "cybersecurity",
+        description: "Our experts secure your infrastructure with audits, firewalls, and best practices."
+    },
+    {
+        title: "Website & App Development",
+        image: "web-app-development",
+        description: "Responsive and scalable websites or mobile apps using the latest tech."
+    },
+    {
+        title: "ERP & Document Management",
+        image: "erp",
+        description: "Digitize all your workflows and documents into one smart ERP system."
+    },
+    {
+        title: "Help Desk Support",
+        image: "help-desk",
+        description: "24/7 help desk support to assist employees and clients with technical queries."
+    },
+    {
+        title: "Backup & Disaster Recovery",
+        image: "backup-recovery",
+        description: "Automated backup, failover systems, and disaster recovery planning."
+    },
+    {
+        title: "Network & Server Management",
+        image: "network-server",
+        description: "Secure and optimized network/server infrastructure with regular maintenance."
+    },
+    {
+        title: "IT Consulting / Virtual CIO",
+        image: "it-consulting",
+        description: "Strategic technology consulting and virtual CIO services for long-term growth."
+    },
+    {
+        title: "VoIP / Unified Communication",
+        image: "voip",
+        description: "Voice-over-IP systems and unified communication solutions for remote work."
+    },
+    {
+        title: "Data Analytics & Dashboards",
+        image: "data-analytics",
+        description: "Turn raw data into actionable insights using interactive dashboards."
+    },
+    {
+        title: "Remote Work Enablement",
+        image: "remote-work",
+        description: "Tools and infrastructure to support secure and productive remote work."
+    },
+    {
+        title: "DevOps & CI/CD Pipelines",
+        image: "devops",
+        description: "Automate your development and deployment using modern DevOps pipelines."
+    },
+    {
+        title: "AI & Automation Solutions",
+        image: "ai-automation",
+        description: "Leverage artificial intelligence to automate workflows and decision-making."
+    },
+    {
+        title: "Hardware Procurement & Setup",
+        image: "hardware-procurement",
+        description: "Procurement, installation, and maintenance of hardware for your company."
+    }
 ];
 
 const Home = () => {
-    const navigate = useNavigate();
-    const location = useLocation();
-    const [testimonials, setTestimonials] = useState([]);
-    const [currentPage, setCurrentPage] = useState(0);
-    const testimonialsRef = useRef(null);
-    const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [testimonials, setTestimonials] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
+    const testimonialsRef = useRef(null);
+    const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
-    // State to determine if it's a mobile view
-    const [isMobile, setIsMobile] = useState(false);
+    // State to determine if it's a mobile view
+    const [isMobile, setIsMobile] = useState(false);
 
-    // Effect to check screen width on mount and resize
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 480); // Define mobile breakpoint, e.g., 480px
-        };
+    // Effect to check screen width on mount and resize
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 480); // Define mobile breakpoint, e.g., 480px
+        };
 
-        checkMobile(); // Initial check
-        window.addEventListener('resize', checkMobile); // Add resize listener
+        checkMobile(); // Initial check
+        window.addEventListener('resize', checkMobile); // Add resize listener
 
-        return () => {
-            window.removeEventListener('resize', checkMobile); // Clean up listener
-        };
-    }, []);
+        return () => {
+            window.removeEventListener('resize', checkMobile); // Clean up listener
+        };
+    }, []);
 
-    // Determine servicesPerPage dynamically based on screen size
-    // For mobile (<=480px), show 1 card per page. For larger screens, show 4.
-    const servicesPerPage = isMobile ? 1 : 4; 
+    // Determine servicesPerPage dynamically based on screen size
+    // For mobile (<=480px), show 1 card per page. For larger screens, show 4.
+    const servicesPerPage = isMobile ? 1 : 4; 
 
-    // Calculate total pages for services based on the dynamic servicesPerPage
-    const pageCount = Math.ceil(services.length / servicesPerPage);
+    // Calculate total pages for services based on the dynamic servicesPerPage
+    const pageCount = Math.ceil(services.length / servicesPerPage);
 
-    // Slice the services array to display only the relevant cards for the current page
-    const displayedServices = services.slice(
-        currentPage * servicesPerPage,
-        (currentPage + 1) * servicesPerPage
-    );
+    // Slice the services array to display only the relevant cards for the current page
+    const displayedServices = services.slice(
+        currentPage * servicesPerPage,
+        (currentPage + 1) * servicesPerPage
+    );
 
-    // Handle scroll to hash links
-    useEffect(() => {
-        if (location.hash) {
-            const element = document.getElementById(location.hash.substring(1));
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+    // Handle scroll to hash links
+    useEffect(() => {
+        if (location.hash) {
+            const element = document.getElementById(location.hash.substring(1));
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [location.hash]);
+
+    // Fetch testimonials
+    useEffect(() => {
+        const fetchTestimonials = async () => {
+            try {
+                const res = await axios.get("https://api.webartifacts.in/api/client/public-feedbacks");
+                setTestimonials(res.data);
+            } catch (err) {
+                console.error("Error fetching testimonials", err);
+            }
+        };
+        fetchTestimonials();
+    }, []);
+
+    // Pagination handlers for services section
+    const handlePrevPage = () => {
+        setCurrentPage((prev) => Math.max(prev - 1, 0));
+    };
+
+    const handleNextPage = () => {
+        setCurrentPage((prev) => Math.min(prev + 1, pageCount - 1));
+    };
+
+    const goToPage = (pageIndex) => {
+        setCurrentPage(pageIndex);
+    };
+
+    // Corrected logic for testimonial scroll handlers
+    const scrollingWithButtons = useRef(false);
+
+    const handleTestimonialScroll = () => {
+        // Only update the index if the user is scrolling manually (not with the buttons)
+        if (!scrollingWithButtons.current && testimonialsRef.current) {
+            const scrollPosition = testimonialsRef.current.scrollLeft;
+            // Get the width of a single testimonial card
+            // Use getBoundingClientRect().width for a precise value
+            const cardWidth = testimonialsRef.current.querySelector('.testimonial-card')?.offsetWidth || 0;
+            if (cardWidth > 0) {
+                // Calculate the new index based on the scroll position
+                const newIndex = Math.round(scrollPosition / cardWidth);
+                setCurrentTestimonialIndex(newIndex);
             }
-        }
-    }, [location.hash]);
+        }
+    };
 
-    // Fetch testimonials
-    useEffect(() => {
-        const fetchTestimonials = async () => {
-            try {
-                const res = await axios.get("https://api.webartifacts.in/api/client/public-feedbacks");
-                setTestimonials(res.data);
-            } catch (err) {
-                console.error("Error fetching testimonials", err);
+    const goToTestimonial = (index) => {
+        if (testimonialsRef.current) {
+            // Set the flag to true to prevent the onScroll handler from running
+            scrollingWithButtons.current = true;
+            
+            const cardWidth = testimonialsRef.current.querySelector('.testimonial-card')?.offsetWidth || 0;
+            if (cardWidth > 0) {
+                testimonialsRef.current.scrollTo({
+                    left: index * cardWidth,
+                    behavior: 'smooth'
+                });
+                setCurrentTestimonialIndex(index);
             }
-        };
-        fetchTestimonials();
-    }, []);
+            
+            // Wait for the scroll to finish, then reset the flag
+            // A small delay ensures the scroll completes before onScroll can fire
+            setTimeout(() => {
+                scrollingWithButtons.current = false;
+            }, 500); // 500ms is a safe value for 'smooth' scrolling
+        }
+    };
 
-    // Pagination handlers for services section
-    const handlePrevPage = () => {
-        setCurrentPage((prev) => Math.max(prev - 1, 0));
-    };
-
-    const handleNextPage = () => {
-        setCurrentPage((prev) => Math.min(prev + 1, pageCount - 1));
-    };
-
-    const goToPage = (pageIndex) => {
-        setCurrentPage(pageIndex);
-    };
-
-    // Testimonial scroll handlers (unrelated to services pagination)
-    const handleTestimonialScroll = () => {
-        if (testimonialsRef.current) {
-            const scrollPosition = testimonialsRef.current.scrollLeft;
-            const cardWidth = testimonialsRef.current.offsetWidth * 0.9;
-            const newIndex = Math.round(scrollPosition / cardWidth);
-            setCurrentTestimonialIndex(newIndex);
-        }
-    };
-
-    const goToTestimonial = (index) => {
-        if (testimonialsRef.current) {
-            const cardWidth = testimonialsRef.current.offsetWidth * 0.9;
-            testimonialsRef.current.scrollTo({
-                left: index * cardWidth,
-                behavior: 'smooth'
-            });
-            setCurrentTestimonialIndex(index);
-        }
-    };
-
-    // Helper function to render pagination dots
-    const renderPaginationDots = (totalItemsLength, currentIndex, goToFunction) => {
-        const dots = [];
-        const numDots = Math.ceil(totalItemsLength / (totalItemsLength === services.length ? servicesPerPage : 4)); // Using 4 for testimonials pagination
-        for (let i = 0; i < numDots; i++) {
-            dots.push(
-                <button
-                    key={`dot-${i}-${totalItemsLength}`} // Unique key combining index and length
-                    className={`pagination-dot ${currentIndex === i ? 'active' : ''}`}
-                    onClick={() => goToFunction(i)}
-                    aria-label={`Go to page ${i + 1}`}
-                />
-            );
-        }
-        return dots;
-    };
+    // Helper function to render pagination dots
+    const renderPaginationDots = (totalItemsLength, currentIndex, goToFunction) => {
+        const dots = [];
+        const numDots = Math.ceil(totalItemsLength / (totalItemsLength === services.length ? servicesPerPage : 4)); // Using 4 for testimonials pagination
+        for (let i = 0; i < numDots; i++) {
+            dots.push(
+                <button
+                    key={`dot-${i}-${totalItemsLength}`} // Unique key combining index and length
+                    className={`pagination-dot ${currentIndex === i ? 'active' : ''}`}
+                    onClick={() => goToFunction(i)}
+                    aria-label={`Go to page ${i + 1}`}
+                />
+            );
+        }
+        return dots;
+    };
 
 
-    return (
-        <div className="home-wrapper">
+    return (
+        <div className="home-wrapper">
 
-            <section className="hero-section">
-                <div className="hero-banner">
-                    <img
-                        src={heroImage}
-                        alt="IT Services"
-                        className="hero-image"
-                    />
-                    <div className="hero-overlay">
-                        <motion.div
-                            initial={{ opacity: 0, y: -30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1 }}
-                            className="hero-content"
-                        >
-                            <img
-                                src={Logo} // Using the uploaded image file
-                                alt="WebArtifacts Logo"
-                                className="hero-logo-image"
-                            />
-                            <p>We deliver secure, scalable, & smart IT solutions for your business.</p>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
+            <section className="hero-section">
+                <div className="hero-banner">
+                    <img
+                        src={heroImage}
+                        alt="IT Services"
+                        className="hero-image"
+                    />
+                    <div className="hero-overlay">
+                        <motion.div
+                            initial={{ opacity: 0, y: -30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1 }}
+                            className="hero-content"
+                        >
+                            <img
+                                src={Logo} // Using the uploaded image file
+                                alt="WebArtifacts Logo"
+                                className="hero-logo-image"
+                            />
+                            <p>We deliver secure, scalable, & smart IT solutions for your business.</p>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
 
-            <main className="main-content">
-                <section className="section tailored-section">
-                    <div className="section-container">
-                        <motion.h2
-                            className="section-title"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true, amount: 0.2 }}
-                        >
-                            Tailored IT Solutions Designed for <span className="text-gradient">Growth</span>
-                        </motion.h2>
+            <main className="main-content">
+                <section className="section tailored-section">
+                    <div className="section-container">
+                        <motion.h2
+                            className="section-title"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                        >
+                            Tailored IT Solutions Designed for <span className="text-gradient">Growth</span>
+                        </motion.h2>
 
-                        <motion.p
-                            className="section-subtitle"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            viewport={{ once: true, amount: 0.2 }}
-                        >
-                            At WebArtifacts, we don't just provide IT services — we deliver <span className="highlight">transformation</span>.
-                        </motion.p>
+                        <motion.p
+                            className="section-subtitle"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                        >
+                            At WebArtifacts, we don't just provide IT services — we deliver <span className="highlight">transformation</span>.
+                        </motion.p>
 
-                        <div className="features-grid">
-                            {[
-                                {
-                                    icon: "🔒",
-                                    title: "Security First",
-                                    desc: "Your data is always safe with enterprise-grade protection.",
-                                    bg: "rgba(16, 185, 129, 0.1)"
-                                },
-                                {
-                                    icon: "⚙️",
-                                    title: "Scalable Solutions",
-                                    desc: "Infrastructure that grows seamlessly with your business.",
-                                    bg: "rgba(99, 102, 241, 0.1)"
-                                },
-                                {
-                                    icon: "🚀",
-                                    title: "Business Focused",
-                                    desc: "Technology aligned with your strategic objectives.",
-                                    bg: "rgba(245, 158, 11, 0.1)"
-                                }
-                            ].map((item, idx) => (
-                                <motion.div
-                                    key={idx}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: idx * 0.15 }}
-                                    viewport={{ once: true, amount: 0.2 }}
-                                    whileHover={{ y: -10 }}
-                                    className="feature-card"
-                                    style={{ background: item.bg }}
-                                >
-                                    <div className="feature-icon">{item.icon}</div>
-                                    <h3>{item.title}</h3>
-                                    <p>{item.desc}</p>
-                                    <div className="feature-hover-effect"></div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                        <div className="features-grid">
+                            {[
+                                {
+                                    icon: "🔒",
+                                    title: "Security First",
+                                    desc: "Your data is always safe with enterprise-grade protection.",
+                                    bg: "rgba(16, 185, 129, 0.1)"
+                                },
+                                {
+                                    icon: "⚙️",
+                                    title: "Scalable Solutions",
+                                    desc: "Infrastructure that grows seamlessly with your business.",
+                                    bg: "rgba(99, 102, 241, 0.1)"
+                                },
+                                {
+                                    icon: "🚀",
+                                    title: "Business Focused",
+                                    desc: "Technology aligned with your strategic objectives.",
+                                    bg: "rgba(245, 158, 11, 0.1)"
+                                }
+                            ].map((item, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: idx * 0.15 }}
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    whileHover={{ y: -10 }}
+                                    className="feature-card"
+                                    style={{ background: item.bg }}
+                                >
+                                    <div className="feature-icon">{item.icon}</div>
+                                    <h3>{item.title}</h3>
+                                    <p>{item.desc}</p>
+                                    <div className="feature-hover-effect"></div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
 
-                <section className="section manage-it-section">
-                    <div className="manage-it-container">
-                        <motion.div
-                            className="manage-it-content"
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true, amount: 0.2 }}
-                        >
-                            <div className="manage-it-header">
-                                <h1> Working Process</h1>
-                                <p className="subtitle">A systematic approach to ensure your success at every stage</p>
-                            </div>
+                <section className="section manage-it-section">
+                    <div className="manage-it-container">
+                        <motion.div
+                            className="manage-it-content"
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                        >
+                            <div className="manage-it-header">
+                                <h1> Working Process</h1>
+                                <p className="subtitle">A systematic approach to ensure your success at every stage</p>
+                            </div>
 
-                            <div className="working-process">
-                                <div className="process-steps">
-                                    {[
-                                        {
-                                            number: "1",
-                                            title: "Strategic Connect",
-                                            description: "We initiate with in-depth consultations to fully grasp your business objectives and technical requirements."
-                                        },
-                                        {
-                                            number: "2",
-                                            title: "Precision Management",
-                                            description: "Our certified partners across India implement solutions with military-grade precision."
-                                        },
-                                        {
-                                            number: "3",
-                                            title: "Growth Planning",
-                                            description: "We architect scalable roadmaps that anticipate your future needs and market shifts."
-                                        },
-                                        {
-                                            number: "4",
-                                            title: "Flawless Execution",
-                                            description: "Cutting-edge implementation with continuous optimization for sustained growth."
-                                        }
-                                    ].map((step, idx) => (
-                                        <motion.div
-                                            key={idx}
-                                            initial={{ opacity: 0, y: 40 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.5, delay: idx * 0.15 }}
-                                            viewport={{ once: true, amount: 0.2 }}
-                                            whileHover={{ y: -10 }}
-                                            className="process-step"
-                                        >
-                                            <div className="step-number">{step.number}</div>
-                                            <h4>{step.title}</h4>
-                                            <p>{step.description}</p>
-                                        </motion.div>
-                                    ))}
-                                </div>
+                            <div className="working-process">
+                                <div className="process-steps">
+                                    {[
+                                        {
+                                            number: "1",
+                                            title: "Strategic Connect",
+                                            description: "We initiate with in-depth consultations to fully grasp your business objectives and technical requirements."
+                                        },
+                                        {
+                                            number: "2",
+                                            title: "Precision Management",
+                                            description: "Our certified partners across India implement solutions with military-grade precision."
+                                        },
+                                        {
+                                            number: "3",
+                                            title: "Growth Planning",
+                                            description: "We architect scalable roadmaps that anticipate your future needs and market shifts."
+                                        },
+                                        {
+                                            number: "4",
+                                            title: "Flawless Execution",
+                                            description: "Cutting-edge implementation with continuous optimization for sustained growth."
+                                        }
+                                    ].map((step, idx) => (
+                                        <motion.div
+                                            key={idx}
+                                            initial={{ opacity: 0, y: 40 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.5, delay: idx * 0.15 }}
+                                            viewport={{ once: true, amount: 0.2 }}
+                                            whileHover={{ y: -10 }}
+                                            className="process-step"
+                                        >
+                                            <div className="step-number">{step.number}</div>
+                                            <h4>{step.title}</h4>
+                                            <p>{step.description}</p>
+                                        </motion.div>
+                                    ))}
+                                </div>
 
-                                <motion.div
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: 0.6 }}
-                                    viewport={{ once: true }}
-                                    className="process-cta"
-                                >
-                                    <button className="btn-primary" onClick={() => navigate("/contact#contact-form")}>
-                                        <span>Start Your Project</span>
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </button>
-                                </motion.div>
-                            </div>
-                        </motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.6 }}
+                                    viewport={{ once: true }}
+                                    className="process-cta"
+                                >
+                                    <button className="btn-primary" onClick={() => navigate("/contact#contact-form")}>
+                                        <span>Start Your Project</span>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </button>
+                                </motion.div>
+                            </div>
+                        </motion.div>
 
-                        <motion.div
-                            className="manage-it-image"
-                            initial={{ opacity: 0, x: 10 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.3, delay: 0.3 }}
-                            viewport={{ once: true }}
-                            whileHover={{ scale: 1.02 }}
-                        >
-                            <img
-                                src={collaborationImage}
-                                alt="IT professionals collaborating"
-                                loading="lazy"
-                            />
-                        </motion.div>
-                    </div>
-                </section>
+                        <motion.div
+                            className="manage-it-image"
+                            initial={{ opacity: 0, x: 10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: 0.3 }}
+                            viewport={{ once: true }}
+                            whileHover={{ scale: 1.02 }}
+                        >
+                            <img
+                                src={collaborationImage}
+                                alt="IT professionals collaborating"
+                                loading="lazy"
+                            />
+                        </motion.div>
+                    </div>
+                </section>
 
 
-                <section className="section services-section">
-                    <div className="section-container">
-                        <h2 className="section-title">Our Services</h2>
+                <section className="section services-section">
+                    <div className="section-container">
+                        <h2 className="section-title">Our Services</h2>
 
-                        <div className="services-container">
-                            <button
-                                className="pagination-arrow"
-                                onClick={handlePrevPage}
-                                disabled={currentPage === 0}
-                                aria-label="Previous page"
-                            >
-                                &lt;
-                            </button>
+                        <div className="services-container">
+                            <button
+                                className="pagination-arrow"
+                                onClick={handlePrevPage}
+                                disabled={currentPage === 0}
+                                aria-label="Previous page"
+                            >
+                                &lt;
+                            </button>
 
-                            {/* No direct ref needed here as pagination is handled by slicing in React state */}
-                            <div className="services-grid"> 
-                                {displayedServices.map((service) => (
-                                    <div
-                                        key={service.title}
-                                        className="service-card"
-                                        onClick={() => navigate(`/services/${encodeURIComponent(service.title)}`)}
-                                        role="button"
-                                        tabIndex={0}
-                                        onKeyDown={(e) => e.key === 'Enter' && navigate(`/services/${encodeURIComponent(service.title)}`)}
-                                    >
-                                        <div className="service-image-half">
-                                            <img
-                                                src={serviceImages[service.image]}
-                                                alt={service.title}
-                                                className="service-image-full"
-                                                loading="lazy"
-                                            />
-                                        </div>
-                                        <div className="service-content-half">
-                                            <h3>{service.title}</h3>
-                                            <p>{service.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                            {/* No direct ref needed here as pagination is handled by slicing in React state */}
+                            <div className="services-grid"> 
+                                {displayedServices.map((service) => (
+                                    <div
+                                        key={service.title}
+                                        className="service-card"
+                                        onClick={() => navigate(`/services/${encodeURIComponent(service.title)}`)}
+                                        role="button"
+                                        tabIndex={0}
+                                        onKeyDown={(e) => e.key === 'Enter' && navigate(`/services/${encodeURIComponent(service.title)}`)}
+                                    >
+                                        <div className="service-image-half">
+                                            <img
+                                                src={serviceImages[service.image]}
+                                                alt={service.title}
+                                                className="service-image-full"
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                        <div className="service-content-half">
+                                            <h3>{service.title}</h3>
+                                            <p>{service.description}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
 
-                            <button
-                                className="pagination-arrow"
-                                onClick={handleNextPage}
-                                disabled={currentPage === pageCount - 1}
-                                aria-label="Next page"
-                            >
-                                &gt;
-                            </button>
-                        </div>
+                            <button
+                                className="pagination-arrow"
+                                onClick={handleNextPage}
+                                disabled={currentPage === pageCount - 1}
+                                aria-label="Next page"
+                            >
+                                &gt;
+                            </button>
+                        </div>
 
-                        <div className="pagination-dots">
-                            {renderPaginationDots(services.length, currentPage, goToPage)}
-                        </div>
-                    </div>
-                </section>
+                        <div className="pagination-dots">
+                            {renderPaginationDots(services.length, currentPage, goToPage)}
+                        </div>
+                    </div>
+                </section>
 
-                <section id="testimonials" className="section testimonials-section">
-                    <div className="testimonials-container">
-                        <motion.div
-                            className="testimonials-header"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                        >
-                            <h2>Client Testimonials</h2>
-                            <p>Hear what our clients say about working with us</p>
-                        </motion.div>
+                <section id="testimonials" className="section testimonials-section">
+                    <div className="testimonials-container">
+                        <motion.div
+                            className="testimonials-header"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                        >
+                            <h2>Client Testimonials</h2>
+                            <p>Hear what our clients say about working with us</p>
+                        </motion.div>
 
-                        <div
-                            className="testimonials-grid"
-                            ref={testimonialsRef}
-                            onScroll={handleTestimonialScroll}
-                        >
-                            {testimonials.map((testimonial) => (
-                                <motion.div
-                                    key={testimonial._id}
-                                    className="testimonial-card"
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5 }}
-                                    viewport={{ once: true, amount: 0.2 }}
-                                    whileHover={{ scale: 1.02 }}
-                                >
-                                    <div className="testimonial-content">
-                                        <p>"{testimonial.message}"</p>
-                                    </div>
-                                    <div className="testimonial-author">
-                                        <div className="testimonial-avatar">
-                                            {testimonial.name.charAt(0).toUpperCase()}
-                                        </div>
-                                        <div className="testimonial-author-info">
-                                            <span className="testimonial-author-name">{testimonial.name}</span>
-                                            <span className="testimonial-author-company">{testimonial.company}</span>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
+                        <div
+                            className="testimonials-grid"
+                            ref={testimonialsRef}
+                            onScroll={handleTestimonialScroll}
+                        >
+                            {testimonials.map((testimonial) => (
+                                <motion.div
+                                    key={testimonial._id}
+                                    className="testimonial-card"
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5 }}
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    whileHover={{ scale: 1.02 }}
+                                >
+                                    <div className="testimonial-content">
+                                        <p>"{testimonial.message}"</p>
+                                    </div>
+                                    <div className="testimonial-author">
+                                        <div className="testimonial-avatar">
+                                            {testimonial.name.charAt(0).toUpperCase()}
+                                        </div>
+                                        <div className="testimonial-author-info">
+                                            <span className="testimonial-author-name">{testimonial.name}</span>
+                                            <span className="testimonial-author-company">{testimonial.company}</span>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
 
-                        <div className="testimonials-pagination">
-                            {renderPaginationDots(testimonials.length, currentTestimonialIndex, goToTestimonial)}
-                        </div>
-                    </div>
-                </section>
+                        <div className="testimonials-navigation">
+    <button
+        className="pagination-arrow prev-arrow"
+        onClick={() => goToTestimonial(currentTestimonialIndex - 1)}
+        disabled={currentTestimonialIndex === 0}
+        aria-label="Previous testimonial"
+    >
+        &lt;
+    </button>
+    <button
+        className="pagination-arrow next-arrow"
+        onClick={() => goToTestimonial(currentTestimonialIndex + 1)}
+        disabled={currentTestimonialIndex >= testimonials.length - 1}
+        aria-label="Next testimonial"
+    >
+        &gt;
+    </button>
+</div>
+                    </div>
+                </section>
 
-                <section className="section contact-preview-section">
-                    <div className="section-container">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true, amount: 0.2 }}
-                            className="contact-preview-content"
-                        >
-                            <div className="contact-preview-text">
-                                <h2>Ready to Get Started?</h2>
-                                <p>
-                                    Have questions about our services or want to discuss your project?
-                                    Our team is ready to help you find the perfect solution.
-                                </p>
-                                <button
-                                    onClick={() => navigate('/contact#contact-form')}
-                                    className="btn-primary"
-                                >
-                                    Contact Our Team
-                                </button>
-                            </div>
-                            <div className="contact-preview-image">
-                                <img
-                                    src={contactImage}
-                                    alt="Contact our team"
-                                />
-                            </div>
-                        </motion.div>
-                    </div>
-                </section>
+                <section className="section contact-preview-section">
+                    <div className="section-container">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            className="contact-preview-content"
+                        >
+                            <div className="contact-preview-text">
+                                <h2>Ready to Get Started?</h2>
+                                <p>
+                                    Have questions about our services or want to discuss your project?
+                                    Our team is ready to help you find the perfect solution.
+                                </p>
+                                <button
+                                    onClick={() => navigate('/contact#contact-form')}
+                                    className="btn-primary"
+                                >
+                                    Contact Our Team
+                                </button>
+                            </div>
+                            <div className="contact-preview-image">
+                                <img
+                                    src={contactImage}
+                                    alt="Contact our team"
+                                />
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
 
-            </main>
+            </main>
 
-            <GeminiChatbot />
-        </div>
-    );
+            <GeminiChatbot />
+        </div>
+    );
 };
 
 export default Home;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // D:\office\webartifacts\webartifacts-frontend\src\pages\Home.jsx
+// import React, { useEffect, useState, useRef } from "react";
+// import axios from "axios";
+// import { useNavigate, useLocation } from "react-router-dom";
+// import { motion } from "framer-motion";
+// import "./Home.css";
+// import GeminiChatbot from "../components/GeminiChatbot";
+
+// // Import your local images
+// import heroImage from "../homeimages/9396710.png";
+// import Logo from "../heroimages/WebArtifacts_transparent white font.png";
+// import collaborationImage from "../homeimages/collaboration.png";
+// import contactImage from "../homeimages/customer-support.png";
+
+// import managedIT from '../homeimages/managed-it.png';
+// import cloudDeployment from '../homeimages/cloud-deployment.png';
+// import customSoftware from '../homeimages/custom-software.png';
+// import cybersecurity from '../homeimages/cybersecurity.png';
+// import webAppDevelopment from '../homeimages/web-app-development.png';
+// import erp from '../homeimages/erp.png';
+// import helpDesk from '../homeimages/help-desk.png';
+// import backupRecovery from '../homeimages/backup-recovery.png';
+// import networkServer from '../homeimages/network-server.png';
+// import itConsulting from '../homeimages/it-consulting.png';
+// import voip from '../homeimages/voip.png';
+// import dataAnalytics from '../homeimages/data-analytics.png';
+// import remoteWork from '../homeimages/remote-work.png';
+// import devops from '../homeimages/devops.png';
+// import aiAutomation from '../homeimages/ai-automation.png';
+// import hardwareProcurement from '../homeimages/hardware-procurement.png';
+
+// const serviceImages = {
+//     'managed-it': managedIT,
+//     'cloud-deployment': cloudDeployment,
+//     'custom-software': customSoftware,
+//     'cybersecurity': cybersecurity,
+//     'web-app-development': webAppDevelopment,
+//     'erp': erp,
+//     'help-desk': helpDesk,
+//     'backup-recovery': backupRecovery,
+//     'network-server': networkServer,
+//     'it-consulting': itConsulting,
+//     'voip': voip,
+//     'data-analytics': dataAnalytics,
+//     'remote-work': remoteWork,
+//     'devops': devops,
+//     'ai-automation': aiAutomation,
+//     'hardware-procurement': hardwareProcurement,
+// };
+
+// const services = [
+//     {
+//         title: "Managed IT Support",
+//         image: "managed-it",
+//         description: "We provide complete IT infrastructure management, support, and desktop services for businesses."
+//     },
+//     {
+//         title: "Cloud Deployment & Backup",
+//         image: "cloud-deployment",
+//         description: "Expert deployment and backup on AWS, Azure, and GCP with disaster recovery."
+//     },
+//     {
+//         title: "Custom Software Development",
+//         image: "custom-software",
+//         description: "We build tailored software solutions using React, Node.js, and modern stacks."
+//     },
+//     {
+//         title: "Cybersecurity Consulting",
+//         image: "cybersecurity",
+//         description: "Our experts secure your infrastructure with audits, firewalls, and best practices."
+//     },
+//     {
+//         title: "Website & App Development",
+//         image: "web-app-development",
+//         description: "Responsive and scalable websites or mobile apps using the latest tech."
+//     },
+//     {
+//         title: "ERP & Document Management",
+//         image: "erp",
+//         description: "Digitize all your workflows and documents into one smart ERP system."
+//     },
+//     {
+//         title: "Help Desk Support",
+//         image: "help-desk",
+//         description: "24/7 help desk support to assist employees and clients with technical queries."
+//     },
+//     {
+//         title: "Backup & Disaster Recovery",
+//         image: "backup-recovery",
+//         description: "Automated backup, failover systems, and disaster recovery planning."
+//     },
+//     {
+//         title: "Network & Server Management",
+//         image: "network-server",
+//         description: "Secure and optimized network/server infrastructure with regular maintenance."
+//     },
+//     {
+//         title: "IT Consulting / Virtual CIO",
+//         image: "it-consulting",
+//         description: "Strategic technology consulting and virtual CIO services for long-term growth."
+//     },
+//     {
+//         title: "VoIP / Unified Communication",
+//         image: "voip",
+//         description: "Voice-over-IP systems and unified communication solutions for remote work."
+//     },
+//     {
+//         title: "Data Analytics & Dashboards",
+//         image: "data-analytics",
+//         description: "Turn raw data into actionable insights using interactive dashboards."
+//     },
+//     {
+//         title: "Remote Work Enablement",
+//         image: "remote-work",
+//         description: "Tools and infrastructure to support secure and productive remote work."
+//     },
+//     {
+//         title: "DevOps & CI/CD Pipelines",
+//         image: "devops",
+//         description: "Automate your development and deployment using modern DevOps pipelines."
+//     },
+//     {
+//         title: "AI & Automation Solutions",
+//         image: "ai-automation",
+//         description: "Leverage artificial intelligence to automate workflows and decision-making."
+//     },
+//     {
+//         title: "Hardware Procurement & Setup",
+//         image: "hardware-procurement",
+//         description: "Procurement, installation, and maintenance of hardware for your company."
+//     }
+// ];
+
+// const Home = () => {
+//     const navigate = useNavigate();
+//     const location = useLocation();
+//     const [testimonials, setTestimonials] = useState([]);
+//     const [currentPage, setCurrentPage] = useState(0);
+//     const testimonialsRef = useRef(null);
+//     const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+
+//     // State to determine if it's a mobile view
+//     const [isMobile, setIsMobile] = useState(false);
+
+//     // Effect to check screen width on mount and resize
+//     useEffect(() => {
+//         const checkMobile = () => {
+//             setIsMobile(window.innerWidth <= 480); // Define mobile breakpoint, e.g., 480px
+//         };
+
+//         checkMobile(); // Initial check
+//         window.addEventListener('resize', checkMobile); // Add resize listener
+
+//         return () => {
+//             window.removeEventListener('resize', checkMobile); // Clean up listener
+//         };
+//     }, []);
+
+//     // Determine servicesPerPage dynamically based on screen size
+//     // For mobile (<=480px), show 1 card per page. For larger screens, show 4.
+//     const servicesPerPage = isMobile ? 1 : 4; 
+
+//     // Calculate total pages for services based on the dynamic servicesPerPage
+//     const pageCount = Math.ceil(services.length / servicesPerPage);
+
+//     // Slice the services array to display only the relevant cards for the current page
+//     const displayedServices = services.slice(
+//         currentPage * servicesPerPage,
+//         (currentPage + 1) * servicesPerPage
+//     );
+
+//     // Handle scroll to hash links
+//     useEffect(() => {
+//         if (location.hash) {
+//             const element = document.getElementById(location.hash.substring(1));
+//             if (element) {
+//                 element.scrollIntoView({ behavior: 'smooth' });
+//             }
+//         }
+//     }, [location.hash]);
+
+//     // Fetch testimonials
+//     useEffect(() => {
+//         const fetchTestimonials = async () => {
+//             try {
+//                 const res = await axios.get("https://api.webartifacts.in/api/client/public-feedbacks");
+//                 setTestimonials(res.data);
+//             } catch (err) {
+//                 console.error("Error fetching testimonials", err);
+//             }
+//         };
+//         fetchTestimonials();
+//     }, []);
+
+//     // Pagination handlers for services section
+//     const handlePrevPage = () => {
+//         setCurrentPage((prev) => Math.max(prev - 1, 0));
+//     };
+
+//     const handleNextPage = () => {
+//         setCurrentPage((prev) => Math.min(prev + 1, pageCount - 1));
+//     };
+
+//     const goToPage = (pageIndex) => {
+//         setCurrentPage(pageIndex);
+//     };
+
+//     // Testimonial scroll handlers (unrelated to services pagination)
+//     const handleTestimonialScroll = () => {
+//         if (testimonialsRef.current) {
+//             const scrollPosition = testimonialsRef.current.scrollLeft;
+//             const cardWidth = testimonialsRef.current.offsetWidth * 0.9;
+//             const newIndex = Math.round(scrollPosition / cardWidth);
+//             setCurrentTestimonialIndex(newIndex);
+//         }
+//     };
+
+//     const goToTestimonial = (index) => {
+//         if (testimonialsRef.current) {
+//             const cardWidth = testimonialsRef.current.offsetWidth * 0.9;
+//             testimonialsRef.current.scrollTo({
+//                 left: index * cardWidth,
+//                 behavior: 'smooth'
+//             });
+//             setCurrentTestimonialIndex(index);
+//         }
+//     };
+
+//     // Helper function to render pagination dots
+//     const renderPaginationDots = (totalItemsLength, currentIndex, goToFunction) => {
+//         const dots = [];
+//         const numDots = Math.ceil(totalItemsLength / (totalItemsLength === services.length ? servicesPerPage : 4)); // Using 4 for testimonials pagination
+//         for (let i = 0; i < numDots; i++) {
+//             dots.push(
+//                 <button
+//                     key={`dot-${i}-${totalItemsLength}`} // Unique key combining index and length
+//                     className={`pagination-dot ${currentIndex === i ? 'active' : ''}`}
+//                     onClick={() => goToFunction(i)}
+//                     aria-label={`Go to page ${i + 1}`}
+//                 />
+//             );
+//         }
+//         return dots;
+//     };
+
+
+//     return (
+//         <div className="home-wrapper">
+
+//             <section className="hero-section">
+//                 <div className="hero-banner">
+//                     <img
+//                         src={heroImage}
+//                         alt="IT Services"
+//                         className="hero-image"
+//                     />
+//                     <div className="hero-overlay">
+//                         <motion.div
+//                             initial={{ opacity: 0, y: -30 }}
+//                             animate={{ opacity: 1, y: 0 }}
+//                             transition={{ duration: 1 }}
+//                             className="hero-content"
+//                         >
+//                             <img
+//                                 src={Logo} // Using the uploaded image file
+//                                 alt="WebArtifacts Logo"
+//                                 className="hero-logo-image"
+//                             />
+//                             <p>We deliver secure, scalable, & smart IT solutions for your business.</p>
+//                         </motion.div>
+//                     </div>
+//                 </div>
+//             </section>
+
+//             <main className="main-content">
+//                 <section className="section tailored-section">
+//                     <div className="section-container">
+//                         <motion.h2
+//                             className="section-title"
+//                             initial={{ opacity: 0, y: 20 }}
+//                             whileInView={{ opacity: 1, y: 0 }}
+//                             transition={{ duration: 0.6 }}
+//                             viewport={{ once: true, amount: 0.2 }}
+//                         >
+//                             Tailored IT Solutions Designed for <span className="text-gradient">Growth</span>
+//                         </motion.h2>
+
+//                         <motion.p
+//                             className="section-subtitle"
+//                             initial={{ opacity: 0, y: 20 }}
+//                             whileInView={{ opacity: 1, y: 0 }}
+//                             transition={{ duration: 0.6, delay: 0.2 }}
+//                             viewport={{ once: true, amount: 0.2 }}
+//                         >
+//                             At WebArtifacts, we don't just provide IT services — we deliver <span className="highlight">transformation</span>.
+//                         </motion.p>
+
+//                         <div className="features-grid">
+//                             {[
+//                                 {
+//                                     icon: "🔒",
+//                                     title: "Security First",
+//                                     desc: "Your data is always safe with enterprise-grade protection.",
+//                                     bg: "rgba(16, 185, 129, 0.1)"
+//                                 },
+//                                 {
+//                                     icon: "⚙️",
+//                                     title: "Scalable Solutions",
+//                                     desc: "Infrastructure that grows seamlessly with your business.",
+//                                     bg: "rgba(99, 102, 241, 0.1)"
+//                                 },
+//                                 {
+//                                     icon: "🚀",
+//                                     title: "Business Focused",
+//                                     desc: "Technology aligned with your strategic objectives.",
+//                                     bg: "rgba(245, 158, 11, 0.1)"
+//                                 }
+//                             ].map((item, idx) => (
+//                                 <motion.div
+//                                     key={idx}
+//                                     initial={{ opacity: 0, y: 30 }}
+//                                     whileInView={{ opacity: 1, y: 0 }}
+//                                     transition={{ duration: 0.5, delay: idx * 0.15 }}
+//                                     viewport={{ once: true, amount: 0.2 }}
+//                                     whileHover={{ y: -10 }}
+//                                     className="feature-card"
+//                                     style={{ background: item.bg }}
+//                                 >
+//                                     <div className="feature-icon">{item.icon}</div>
+//                                     <h3>{item.title}</h3>
+//                                     <p>{item.desc}</p>
+//                                     <div className="feature-hover-effect"></div>
+//                                 </motion.div>
+//                             ))}
+//                         </div>
+//                     </div>
+//                 </section>
+
+//                 <section className="section manage-it-section">
+//                     <div className="manage-it-container">
+//                         <motion.div
+//                             className="manage-it-content"
+//                             initial={{ opacity: 0, x: -30 }}
+//                             whileInView={{ opacity: 1, x: 0 }}
+//                             transition={{ duration: 0.6 }}
+//                             viewport={{ once: true, amount: 0.2 }}
+//                         >
+//                             <div className="manage-it-header">
+//                                 <h1> Working Process</h1>
+//                                 <p className="subtitle">A systematic approach to ensure your success at every stage</p>
+//                             </div>
+
+//                             <div className="working-process">
+//                                 <div className="process-steps">
+//                                     {[
+//                                         {
+//                                             number: "1",
+//                                             title: "Strategic Connect",
+//                                             description: "We initiate with in-depth consultations to fully grasp your business objectives and technical requirements."
+//                                         },
+//                                         {
+//                                             number: "2",
+//                                             title: "Precision Management",
+//                                             description: "Our certified partners across India implement solutions with military-grade precision."
+//                                         },
+//                                         {
+//                                             number: "3",
+//                                             title: "Growth Planning",
+//                                             description: "We architect scalable roadmaps that anticipate your future needs and market shifts."
+//                                         },
+//                                         {
+//                                             number: "4",
+//                                             title: "Flawless Execution",
+//                                             description: "Cutting-edge implementation with continuous optimization for sustained growth."
+//                                         }
+//                                     ].map((step, idx) => (
+//                                         <motion.div
+//                                             key={idx}
+//                                             initial={{ opacity: 0, y: 40 }}
+//                                             whileInView={{ opacity: 1, y: 0 }}
+//                                             transition={{ duration: 0.5, delay: idx * 0.15 }}
+//                                             viewport={{ once: true, amount: 0.2 }}
+//                                             whileHover={{ y: -10 }}
+//                                             className="process-step"
+//                                         >
+//                                             <div className="step-number">{step.number}</div>
+//                                             <h4>{step.title}</h4>
+//                                             <p>{step.description}</p>
+//                                         </motion.div>
+//                                     ))}
+//                                 </div>
+
+//                                 <motion.div
+//                                     initial={{ opacity: 0, y: 30 }}
+//                                     whileInView={{ opacity: 1, y: 0 }}
+//                                     transition={{ duration: 0.6, delay: 0.6 }}
+//                                     viewport={{ once: true }}
+//                                     className="process-cta"
+//                                 >
+//                                     <button className="btn-primary" onClick={() => navigate("/contact#contact-form")}>
+//                                         <span>Start Your Project</span>
+//                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+//                                             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+//                                         </svg>
+//                                     </button>
+//                                 </motion.div>
+//                             </div>
+//                         </motion.div>
+
+//                         <motion.div
+//                             className="manage-it-image"
+//                             initial={{ opacity: 0, x: 10 }}
+//                             whileInView={{ opacity: 1, x: 0 }}
+//                             transition={{ duration: 0.3, delay: 0.3 }}
+//                             viewport={{ once: true }}
+//                             whileHover={{ scale: 1.02 }}
+//                         >
+//                             <img
+//                                 src={collaborationImage}
+//                                 alt="IT professionals collaborating"
+//                                 loading="lazy"
+//                             />
+//                         </motion.div>
+//                     </div>
+//                 </section>
+
+
+//                 <section className="section services-section">
+//                     <div className="section-container">
+//                         <h2 className="section-title">Our Services</h2>
+
+//                         <div className="services-container">
+//                             <button
+//                                 className="pagination-arrow"
+//                                 onClick={handlePrevPage}
+//                                 disabled={currentPage === 0}
+//                                 aria-label="Previous page"
+//                             >
+//                                 &lt;
+//                             </button>
+
+//                             {/* No direct ref needed here as pagination is handled by slicing in React state */}
+//                             <div className="services-grid"> 
+//                                 {displayedServices.map((service) => (
+//                                     <div
+//                                         key={service.title}
+//                                         className="service-card"
+//                                         onClick={() => navigate(`/services/${encodeURIComponent(service.title)}`)}
+//                                         role="button"
+//                                         tabIndex={0}
+//                                         onKeyDown={(e) => e.key === 'Enter' && navigate(`/services/${encodeURIComponent(service.title)}`)}
+//                                     >
+//                                         <div className="service-image-half">
+//                                             <img
+//                                                 src={serviceImages[service.image]}
+//                                                 alt={service.title}
+//                                                 className="service-image-full"
+//                                                 loading="lazy"
+//                                             />
+//                                         </div>
+//                                         <div className="service-content-half">
+//                                             <h3>{service.title}</h3>
+//                                             <p>{service.description}</p>
+//                                         </div>
+//                                     </div>
+//                                 ))}
+//                             </div>
+
+//                             <button
+//                                 className="pagination-arrow"
+//                                 onClick={handleNextPage}
+//                                 disabled={currentPage === pageCount - 1}
+//                                 aria-label="Next page"
+//                             >
+//                                 &gt;
+//                             </button>
+//                         </div>
+
+//                         <div className="pagination-dots">
+//                             {renderPaginationDots(services.length, currentPage, goToPage)}
+//                         </div>
+//                     </div>
+//                 </section>
+
+//                 <section id="testimonials" className="section testimonials-section">
+//                     <div className="testimonials-container">
+//                         <motion.div
+//                             className="testimonials-header"
+//                             initial={{ opacity: 0, y: 20 }}
+//                             whileInView={{ opacity: 1, y: 0 }}
+//                             transition={{ duration: 0.6 }}
+//                             viewport={{ once: true }}
+//                         >
+//                             <h2>Client Testimonials</h2>
+//                             <p>Hear what our clients say about working with us</p>
+//                         </motion.div>
+
+//                         <div
+//                             className="testimonials-grid"
+//                             ref={testimonialsRef}
+//                             onScroll={handleTestimonialScroll}
+//                         >
+//                             {testimonials.map((testimonial) => (
+//                                 <motion.div
+//                                     key={testimonial._id}
+//                                     className="testimonial-card"
+//                                     initial={{ opacity: 0, y: 30 }}
+//                                     whileInView={{ opacity: 1, y: 0 }}
+//                                     transition={{ duration: 0.5 }}
+//                                     viewport={{ once: true, amount: 0.2 }}
+//                                     whileHover={{ scale: 1.02 }}
+//                                 >
+//                                     <div className="testimonial-content">
+//                                         <p>"{testimonial.message}"</p>
+//                                     </div>
+//                                     <div className="testimonial-author">
+//                                         <div className="testimonial-avatar">
+//                                             {testimonial.name.charAt(0).toUpperCase()}
+//                                         </div>
+//                                         <div className="testimonial-author-info">
+//                                             <span className="testimonial-author-name">{testimonial.name}</span>
+//                                             <span className="testimonial-author-company">{testimonial.company}</span>
+//                                         </div>
+//                                     </div>
+//                                 </motion.div>
+//                             ))}
+//                         </div>
+
+//                         <div className="testimonials-pagination">
+//                             {renderPaginationDots(testimonials.length, currentTestimonialIndex, goToTestimonial)}
+//                         </div>
+//                     </div>
+//                 </section>
+
+//                 <section className="section contact-preview-section">
+//                     <div className="section-container">
+//                         <motion.div
+//                             initial={{ opacity: 0, y: 20 }}
+//                             whileInView={{ opacity: 1, y: 0 }}
+//                             transition={{ duration: 0.6 }}
+//                             viewport={{ once: true, amount: 0.2 }}
+//                             className="contact-preview-content"
+//                         >
+//                             <div className="contact-preview-text">
+//                                 <h2>Ready to Get Started?</h2>
+//                                 <p>
+//                                     Have questions about our services or want to discuss your project?
+//                                     Our team is ready to help you find the perfect solution.
+//                                 </p>
+//                                 <button
+//                                     onClick={() => navigate('/contact#contact-form')}
+//                                     className="btn-primary"
+//                                 >
+//                                     Contact Our Team
+//                                 </button>
+//                             </div>
+//                             <div className="contact-preview-image">
+//                                 <img
+//                                     src={contactImage}
+//                                     alt="Contact our team"
+//                                 />
+//                             </div>
+//                         </motion.div>
+//                     </div>
+//                 </section>
+
+//             </main>
+
+//             <GeminiChatbot />
+//         </div>
+//     );
+// };
+
+// export default Home;
 
 
 
