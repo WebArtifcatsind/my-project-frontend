@@ -29,6 +29,8 @@
   padding: clamp(18px, 3.2vw, 36px);
   margin-bottom: clamp(16px, 2.5vw, 24px);
   overflow: hidden;
+  top: 25px;
+  margin-bottom: 50px
 }
 
 .legal-page .legal-hero::after {

@@ -209,6 +209,11 @@
   min-width: 16px;
 }
 
+.footer .footer-section .footer-links .contact-item:nth-of-type(2) .contact-icon {
+  transform: scaleX(-1);
+  transform-origin: center;
+}
+
 /* Newsletter */
 .newsletter-title {
   font-size: 0.875rem;
