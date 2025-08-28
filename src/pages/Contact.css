@@ -105,6 +105,7 @@
   background-color: #f0f4f8;
   user-select: none;
   -webkit-user-select: none; /* Safari/older */
+  position: relative;
 }
 
 /* Main form container */

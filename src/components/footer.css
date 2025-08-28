@@ -1,3 +1,4 @@
+/* src/components/footer.css */
 /* Footer Container */
 .footer {
   background: linear-gradient(to right, #1f2937, #111827);
@@ -9,17 +10,16 @@
   z-index: 1001;
 }
 
-
 /* About Us Section */
 .about-section {
   background: transparent;
-  padding: 1rem 1rem; /* Added horizontal padding for mobile */
+  padding: 1rem;
 }
 
 .about-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem; /* Added horizontal padding */
+  padding: 2rem 1rem;
   text-align: center;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .about-header h1 {
-  font-size: 1.25rem; /* Reduced font size for mobile */
+  font-size: 1.25rem;
   margin-right: 0rem;
   color: #60a5fa;
 }
@@ -47,7 +47,7 @@
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
-  padding: 0 1rem; /* Added padding for mobile */
+  padding: 0 1rem;
 }
 
 /* Style for the logo in the 'Company Info' section */
@@ -69,7 +69,7 @@
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem; /* Added horizontal padding for mobile */
+  padding: 0 1rem;
 }
 
 /* Grid Layout */
@@ -167,7 +167,7 @@
 
 /* Services List */
 .services-list {
-  display: flex; /* Changed to flex for better wrapping on mobile */
+  display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
@@ -269,7 +269,7 @@
   display: flex;
   gap: 1.5rem;
   margin-top: 1rem;
-  flex-wrap: wrap; /* Added for mobile wrapping */
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -277,7 +277,7 @@
   color: #9ca3af;
   transition: color 0.3s ease;
   font-size: 0.9rem;
-  white-space: nowrap; /* Prevents breaking on small screens */
+  white-space: nowrap;
 }
 
 .copyright-link:hover {
@@ -290,7 +290,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* Media Queries                                */
+/* Media Queries */
 /* -------------------------------------------------------------------------- */
 
 /* Tablet & Larger Screens */
@@ -298,13 +298,21 @@
   .footer-grid {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .about-container {
+    padding: 2rem 2rem; /* Increased padding */
+  }
+
+  .footer-container {
+    padding: 0 2rem; /* Increased padding */
+  }
   
   .about-header h1 {
     font-size: 1.4rem;
   }
   
   .services-list {
-    display: flex; /* Restore flex for tablets and above */
+    display: flex;
     flex-direction: column;
   }
   
@@ -322,7 +330,7 @@
 @media (min-width: 1200px) {
   .footer-container,
   .about-container {
-    padding: 0 4rem; /* Pushes content further inward on larger screens */
+    padding: 0 4rem;
   }
   
   .footer-heading {
@@ -334,6 +342,6 @@
   .about-description,
   .company-description,
   .copyright {
-    font-size: 1rem; /* Slightly larger fonts for better readability */
+    font-size: 1rem;
   }
 }

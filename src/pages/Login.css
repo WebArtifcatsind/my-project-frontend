@@ -188,3 +188,31 @@ button:disabled,
     border: none !important;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.services-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        gap: 55px;
+        flex-grow: 2;
+        flex-shrink: 0;
+        min-width: 0;
+        padding: 0 40px;
+        margin-left: 15px;
+        margin-top: 10px;
+    }
