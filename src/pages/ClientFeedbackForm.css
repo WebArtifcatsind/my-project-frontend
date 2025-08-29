@@ -186,3 +186,83 @@
   color: #b91c1c;           /* Red text */
   background-color: #fee2e2;/* Light red background */
 }
+
+
+
+/* ─────────────────────────────
+   Star rating (accessible, light)
+   ───────────────────────────── */
+.rating-group {
+  margin-bottom: 1rem;
+}
+
+.rating-label {
+  display: block;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.4rem;
+}
+
+.rating-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  user-select: none;
+}
+
+.rating-stars .star {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0 3px;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: #d1d5db;              /* empty star color */
+  transition: transform .12s ease, color .15s ease;
+}
+
+.rating-stars .star.filled {
+  color: #f59e0b;              /* amber (matches your palette) */
+}
+
+.rating-stars .star:hover {
+  transform: translateY(-1px) scale(1.06);
+}
+
+.rating-stars .star:focus-visible {
+  outline: 2px solid rgba(16,185,129,.4); /* green focus */
+  border-radius: 4px;
+}
+
+.rating-stars .rating-value {
+  margin-left: 0.4rem;
+  font-size: 0.95rem;
+  color: #6b7280;              /* gray-500 */
+}
+
+/* If any input gets error class, keep consistent look */
+.input-error,
+.form-textarea.input-error {
+  border-color: #dc2626 !important;       /* red-600 */
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+
+/* Kill all focus/selection outlines on stars */
+.rating-stars .star:focus,
+.rating-stars .star:focus-visible,
+.rating-stars .star:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Firefox old inner focus fix */
+.rating-stars .star::-moz-focus-inner {
+  border: 0;
+}
+
+/* Remove mobile tap highlight */
+.rating-stars .star {
+  -webkit-tap-highlight-color: transparent;
+}

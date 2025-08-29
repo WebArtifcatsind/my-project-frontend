@@ -95,14 +95,37 @@ const Footer = ({ scrollToSection }) => { // ⬅️ Accept scrollToSection as a 
                             <ul className="footer-links">
                                 <li className="footer-link">
                                     <Link
-                                        to="/#testimonials"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            scrollToSection('testimonials');
-                                        }}
-                                    >
-                                        Testimonials
-                                    </Link>
+    to="/#testimonials"
+    onClick={(e) => {
+      e.preventDefault();
+
+      const goWithOffset = () => {
+        const el = document.getElementById("testimonials");
+        if (!el) {
+          // fallback: set the hash so any listeners can react
+          window.location.hash = "#testimonials";
+          return;
+        }
+        const header = document.querySelector(".navbar");
+        const offset = (header?.offsetHeight || 88) + 6; // +6 for breathing room
+        const y = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+      };
+
+      if (window.location.pathname !== "/") {
+        // Not on home: navigate, then scroll after paint
+        // navigate comes from useNavigate() already in your component
+        navigate("/#testimonials");
+        // scroll on the next tick so the element exists
+        setTimeout(goWithOffset, 50);
+      } else {
+        // Already on home: just scroll with offset
+        goWithOffset();
+      }
+    }}
+  >
+    Testimonials
+  </Link>
                                 </li>
                                 <li className="footer-link">Case Studies</li>
                                 <li className="footer-link">Blog</li>

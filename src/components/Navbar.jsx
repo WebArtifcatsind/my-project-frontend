@@ -147,7 +147,22 @@ const Navbar = () => {
           <div className="support-container" ref={supportDropdownRef}>
             <Link to="#" onClick={toggleSupport} className="nav-link">SUPPORT CENTRE</Link>
             <div className={`support-menu ${showSupportDropdown ? 'show-dropdown' : ''}`}>
-              <Link to="/client/complaint" className="support-item" onClick={handleNavLinkClick}>COMPLAINT</Link>
+              <Link
+  to="/client/complaint"
+  className="support-item"
+  onClick={(e) => {
+    e.preventDefault();
+    handleNavLinkClick(); // close menus
+
+    if (location.pathname === "/client/complaint") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/client/complaint");
+    }
+  }}
+>
+  COMPLAINT
+</Link>
               <Link
   to="/client/feedback"
   className="support-item"
@@ -166,30 +181,32 @@ const Navbar = () => {
 >
   FEEDBACK
 </Link>
-              <a
-  href="/#testimonials"
-  className="support-item"
-  onClick={(e) => {
-    e.preventDefault();
-    handleNavLinkClick();
 
-    if (location.pathname === "/") {
-      // already on the home page → scroll directly
-      const el = document.getElementById("testimonials");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else {
-        // fallback: update hash so any listeners can react
-        window.location.hash = "#testimonials";
-      }
-    } else {
-      // different page → navigate; your Home page should scroll on hash
-      navigate("/#testimonials");
-    }
-  }}
->
-  TESTIMONIALS
-</a>
+              <a
+              href="/#testimonials"
+              className="support-item"
+          onClick={(e) => {
+              e.preventDefault();
+              handleNavLinkClick();
+
+              const scrollToWithOffset = (el, offset = 88) => {
+              const y = el.getBoundingClientRect().top + window.scrollY - offset;
+              window.scrollTo({ top: y, behavior: "smooth" });
+            };
+
+              if (location.pathname === "/") {
+              const el = document.getElementById("testimonials");
+              if (el) scrollToWithOffset(el);
+              else window.location.hash = "#testimonials";
+            } else {
+      // navigate to Home; CSS scroll-margin-top handles the final position
+              navigate("/#testimonials");
+            }
+          }}
+          >
+          TESTIMONIALS
+        </a>
+
             </div>
           </div>
 
