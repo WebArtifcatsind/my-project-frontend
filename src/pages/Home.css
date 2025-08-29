@@ -2584,3 +2584,37 @@ html, body {
     grid-template-columns: 1fr !important;
   }
 }
+
+
+
+
+/* Ultra-tight gap between the hero and the first tailored section */
+.hero-section + .main-content .tailored-section {
+  padding-top: 0.5rem !important;   /* was larger */
+  margin-top: -1.25rem !important;  /* gently pulls section up */
+}
+
+/* Large desktops: a touch tighter if you want */
+@media (min-width: 1441px) {
+  .hero-section + .main-content .tailored-section {
+    padding-top: 0.75rem !important;
+    margin-top: -1.5rem !important;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .hero-section + .main-content .tailored-section {
+    padding-top: 0.35rem !important;
+    margin-top: -0.75rem !important;
+  }
+}
+
+/* Phones */
+@media (max-width: 560px) {
+  .hero-section + .main-content .tailored-section {
+    padding-top: 0 !important;
+    margin-top: -0.5rem !important;
+  }
+}
+
