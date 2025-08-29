@@ -342,6 +342,33 @@ section#our-story.about-section {
 }
 
 
+/* --- tighten gap ONLY between Team (alt) and the Compliance section --- */
+.about-section.alt + .about-section {
+  padding-top: 14px;     /* smaller top padding for the next section */
+  margin-top: -12px;     /* pull it slightly upward */
+}
+
+/* cancel the 50px push for this specific section only */
+.about-section.alt + .about-section .split {
+  top: 0;                 /* overrides .split { top: 50px; } here */
+}
+
+
+
+
+
+/* Pull the CTA up a bit and reduce its top padding */
+.about-section + .about-cta {
+  margin-top: -30px;      /* overlap the extra space created by the previous .split */
+  padding-top: 5px;      /* smaller top padding just for this case */
+}
+
+/* If your .split adds bottom margin inside the Compliance section,
+   the negative margin above already cancels most of it.
+   Keep the CTA card snug (no extra top margin inside). */
+.about-section + .about-cta .cta-card {
+  margin-top: 0;
+}
 
 
 /* =======================

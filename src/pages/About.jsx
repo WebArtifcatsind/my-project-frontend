@@ -244,7 +244,7 @@ const About = () => {
       </section>
 
       {/* Compliance / Certifications */}
-      <section className="about-section">
+      <section className="about-section ">
         <div className="container split">
           <div className="leftside">
             <h2>Compliance & Best Practices</h2>
