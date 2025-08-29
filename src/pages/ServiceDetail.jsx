@@ -961,6 +961,9 @@ const ServiceDetail = () => {
   const benefitDescriptions = service?.benefitDescriptions || [];
   const benefitImages = service?.benefitImages || [];
 
+
+const serviceKey = title.replace(/\s+/g, "_"); // <-- ADD THIS
+
   /* === UPDATED: tablets & your special buckets => 2 per page === */
   const getBPP = () => {
     if (typeof window === "undefined") return 4;
@@ -1144,7 +1147,10 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      <section className="benefits-carousel-section">
+      <section
+        key={`section-${serviceKey}`} // ensure section subtree remounts per service
+        className="benefits-carousel-section"
+      >
         <div className="carousel-wrapper" {...handlers}>
           <button className="carousel-arrow prev" onClick={goPrev} disabled={!showPrevArrow}>
             <FiChevronLeft size={24} />
@@ -1152,32 +1158,38 @@ const ServiceDetail = () => {
 
           <div className="carousel-container">
             <div
+              key={`track-${serviceKey}`} // 🔑 force a fresh track for each service
               className="carousel-track"
               style={{ transform: `translateX(-${currentPage * 100}%)` }}
             >
               {paginatedBenefits.map((page, pageIndex) => (
-                <div key={pageIndex} className="carousel-page">
-                  {page.benefits.map((benefit, index) => (
-                    <div
-                      key={`${pageIndex}-${index}`}
-                      className="benefit-card"
-                      style={tabletTwoPerStyle}  // <- only affects 2-per-page
-                    >
-                      <div className="card-image-container">
-                        <img
-                          src={images[page.images[index]]}
-                          alt={benefit}
-                          className="card-image"
-                          loading="lazy"
-                        />
-                        <div className="card-overlay"></div>
+                <div key={`page-${serviceKey}-${pageIndex}`} className="carousel-page">
+                  {page.benefits.map((benefit, index) => {
+                    const imgKey = page.images[index]; // e.g., "data-migration"
+                    return (
+                      <div
+                        key={`card-${serviceKey}-${imgKey}`}
+                        className="benefit-card"
+                        style={tabletTwoPerStyle}
+                      >
+                        <div className="card-image-container">
+                          <img
+                            key={`img-${serviceKey}-${imgKey}`} // 🔑 new <img> when service changes
+                            src={images[imgKey]}
+                            alt={benefit}
+                            className="card-image"
+                            loading={pageIndex === 0 ? "eager" : "lazy"}
+                            decoding="async"
+                          />
+                          <div className="card-overlay"></div>
+                        </div>
+                        <div className="card-content">
+                          <h3 className="card-title">{benefit}</h3>
+                          <p className="card-description">{page.descriptions[index]}</p>
+                        </div>
                       </div>
-                      <div className="card-content">
-                        <h3 className="card-title">{benefit}</h3>
-                        <p className="card-description">{page.descriptions[index]}</p>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               ))}
             </div>
@@ -1192,7 +1204,7 @@ const ServiceDetail = () => {
           <div className="carousel-dots">
             {Array.from({ length: totalPages }).map((_, i) => (
               <button
-                key={i}
+                key={`dot-${serviceKey}-${i}`}
                 className={`dot ${i === currentPage ? "active" : ""}`}
                 onClick={() => setCurrentPage(i)}
                 aria-label={`Go to page ${i + 1}`}
@@ -1207,8 +1219,8 @@ const ServiceDetail = () => {
           TOOLS & TECHNOLOGIES
         </h2>
         <div className="tools-container">
-          {service.tools.map((tool, index) => (
-            <div key={index} className="tool-card">
+          {service.tools.map((tool) => (
+            <div key={`tool-${serviceKey}-${tool}`} className="tool-card">
               <span className="tool-name">{tool}</span>
             </div>
           ))}
