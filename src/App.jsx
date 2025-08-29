@@ -15,6 +15,7 @@ import Careers from "./pages/Careers";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
+import About from "./pages/About";
 
 const AppContent = () => {
   const navigate = useNavigate();
@@ -62,6 +63,7 @@ const AppContent = () => {
       <Route path="/terms" element={<Layout scrollToSection={scrollToSection}><Terms /></Layout>} />
       <Route path="/privacy" element={<Layout scrollToSection={scrollToSection}><Privacy /></Layout>} />
       <Route path="/cookies" element={<Layout scrollToSection={scrollToSection}><Cookies /></Layout>} />
+      <Route path="/about" element={<Layout scrollToSection={scrollToSection}><About /></Layout>} />
 
       {/* Routes without the Navbar and Footer */}
       <Route path="/login" element={<Login />} />

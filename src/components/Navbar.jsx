@@ -150,15 +150,29 @@ const Navbar = () => {
               <Link to="/client/complaint" className="support-item" onClick={handleNavLinkClick}>COMPLAINT</Link>
               <Link to="/client/feedback" className="support-item" onClick={handleNavLinkClick}>FEEDBACK</Link>
               <a
-                href="/#testimonials"
-                className="support-item"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate('/#testimonials');
-                }}
-              >
-                TESTIMONIALS
-              </a>
+  href="/#testimonials"
+  className="support-item"
+  onClick={(e) => {
+    e.preventDefault();
+    handleNavLinkClick();
+
+    if (location.pathname === "/") {
+      // already on the home page → scroll directly
+      const el = document.getElementById("testimonials");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        // fallback: update hash so any listeners can react
+        window.location.hash = "#testimonials";
+      }
+    } else {
+      // different page → navigate; your Home page should scroll on hash
+      navigate("/#testimonials");
+    }
+  }}
+>
+  TESTIMONIALS
+</a>
             </div>
           </div>
 
@@ -170,17 +184,17 @@ const Navbar = () => {
             CAREERS
           </Link>
 
-          {/* ABOUT US scrolls to footer's #about on current page */}
-          <a
-            href={location.pathname + '#about'}
+          {/* ✅ ROUTE to About page now */}
+          <Link
+            to="/about"
             className="nav-link"
-            onClick={(e) => {
-              e.preventDefault();
-              handleScrollToSection('about');
+            onClick={() => {
+              handleNavLinkClick();
+              window.scrollTo(0, 0);
             }}
           >
             ABOUT US
-          </a>
+          </Link>
 
           {user ? (
             <>
@@ -197,7 +211,6 @@ const Navbar = () => {
               <button onClick={handleLogout} className="logout-btn">LOGOUT</button>
             </>
           ) : (
-            // ✅ FIX: navigate to /contact#contact-form so Contact.jsx can scroll to the form
             <Link
               to="/contact#contact-form"
               className="contact-btn"
@@ -213,6 +226,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
 

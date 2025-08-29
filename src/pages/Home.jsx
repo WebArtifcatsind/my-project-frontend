@@ -487,13 +487,13 @@ const Home = () => {
               </button>
             </div>
 
-            <div className="pagination-dots">
+            <div id="testimonials" className="pagination-dots">
               {renderPaginationDots(services.length, currentPage, goToPage)}
             </div>
           </div>
         </section>
 
-        <section id="testimonials" className="section testimonials-section">
+        <section  className="section testimonials-section">
           <div className="testimonials-container">
             <motion.div
               className="testimonials-header"
