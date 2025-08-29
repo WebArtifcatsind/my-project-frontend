@@ -113,3 +113,16 @@ button {
   margin-bottom: 1rem;
   display: inline-block;
 }
+
+
+/* Stars in admin cards */
+.stars {
+  color: #f59e0b;            /* amber */
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.rating-number {
+  color: #666;
+  margin-left: 4px;
+  font-size: 0.9rem;
+}

@@ -1,4 +1,3 @@
-// src/pages/AdminFeedbackView.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AdminFeedbackView.css";
@@ -7,6 +6,12 @@ const AdminFeedbackView = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [message, setMessage] = useState("");
   const token = localStorage.getItem("token");
+
+  // ⭐ helper: clamp + render star glyphs
+  const renderStars = (raw = 0) => {
+    const n = Math.max(0, Math.min(5, Math.round(Number(raw) || 0)));
+    return "★".repeat(n) + "☆".repeat(5 - n);
+  };
 
   const fetchFeedbacks = async () => {
     try {
@@ -64,7 +69,7 @@ const AdminFeedbackView = () => {
   }, []);
 
   const privateFeedbacks = feedbacks.filter((f) => !f.is_public);
-  const publicFeedbacks = feedbacks.filter((f) => f.is_public);
+  const publicFeedbacks  = feedbacks.filter((f) =>  f.is_public);
 
   return (
     <div className="p-6">
@@ -82,19 +87,19 @@ const AdminFeedbackView = () => {
               <div key={f.id} className="feedback-card">
                 <p><strong>Name:</strong> {f.name}</p>
                 <p><strong>Email:</strong> {f.email}</p>
+                {/* ⭐ show rating if present (falls back to 0/5) */}
+                <p>
+                  <strong>Rating:</strong>{" "}
+                  <span className="stars">{renderStars(f.rating)}</span>
+                  <span className="rating-number">({Number(f.rating) || 0}/5)</span>
+                </p>
                 <p><strong>Message:</strong> {f.message}</p>
                 <p className="private-status"><strong>Status:</strong> 🔒 Private</p>
                 <div className="flex gap-2 mt-2">
-                  <button
-                    onClick={() => markPublic(f.id)}
-                    className="bg-green-600 text-white"
-                  >
+                  <button onClick={() => markPublic(f.id)} className="bg-green-600 text-white">
                     🌍 Mark Public
                   </button>
-                  <button
-                    onClick={() => handleDelete(f.id)}
-                    className="bg-red-600 text-white"
-                  >
+                  <button onClick={() => handleDelete(f.id)} className="bg-red-600 text-white">
                     🗑️ Delete
                   </button>
                 </div>
@@ -115,13 +120,16 @@ const AdminFeedbackView = () => {
               <div key={f.id} className="feedback-card">
                 <p><strong>Name:</strong> {f.name}</p>
                 <p><strong>Email:</strong> {f.email}</p>
+                {/* ⭐ show rating */}
+                <p>
+                  <strong>Rating:</strong>{" "}
+                  <span className="stars">{renderStars(f.rating)}</span>
+                  <span className="rating-number">({Number(f.rating) || 0}/5)</span>
+                </p>
                 <p><strong>Message:</strong> {f.message}</p>
                 <p className="public-status"><strong>Status:</strong> 🌍 Public</p>
                 <div className="flex gap-2 mt-2">
-                  <button
-                    onClick={() => handleUnmarkPublic(f.id)}
-                    className="bg-yellow-500 text-white"
-                  >
+                  <button onClick={() => handleUnmarkPublic(f.id)} className="bg-yellow-500 text-white">
                     🔒 Make Private
                   </button>
                 </div>

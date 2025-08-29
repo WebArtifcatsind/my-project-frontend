@@ -843,6 +843,16 @@ html, body {
 }
 
 
+/* Testimonials: star display */
+.testimonial-rating .stars {
+  color: #f59e0b;      /* amber */
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+
+
 
 /* ===== Contact Preview Section ===== */
 .contact-preview-section {

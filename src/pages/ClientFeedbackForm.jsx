@@ -9,27 +9,23 @@ const ClientFeedbackForm = () => {
     name: "",
     email: "",
     message: "",
-    rating: 0,          // ★ NEW
+    rating: 0,               // ★ add rating
   });
-
-  const [hoverRating, setHoverRating] = useState(0); // ★ NEW (for hover preview)
 
   const [formErrors, setFormErrors] = useState({
     name: "",
     email: "",
     message: "",
-    rating: "",         // ★ NEW
+    rating: "",              // ★ optional
   });
 
   const [status, setStatus] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Regex
   const nameRegex = /^[a-zA-Z\s]*$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -48,7 +44,7 @@ const ClientFeedbackForm = () => {
         if (!value.trim()) error = "Message is required.";
         break;
       case "rating":
-        if (!value || Number(value) < 1) error = "Please select a star rating.";
+        if (value < 1 || value > 5) error = "Please select a rating.";
         break;
       default:
         break;
@@ -59,56 +55,61 @@ const ClientFeedbackForm = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((p) => ({ ...p, [name]: value }));
-    validateField(name, value);
-  };
-
-  const handleStarClick = (n) => {
-    setFormData((p) => ({ ...p, rating: n }));
-    validateField("rating", n);
-  };
-
-  const handleStarKey = (e) => {
-    // keyboard support: arrows to change rating
-    if (e.key === "ArrowRight" || e.key === "ArrowUp") {
-      const next = Math.min(5, (formData.rating || 0) + 1);
-      setFormData((p) => ({ ...p, rating: next }));
-      validateField("rating", next);
-    } else if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
-      const prev = Math.max(1, (formData.rating || 0) - 1);
-      setFormData((p) => ({ ...p, rating: prev }));
-      validateField("rating", prev);
-    }
+    const val = name === "rating" ? Number(value) : value;
+    setFormData((prev) => ({ ...prev, [name]: val }));
+    validateField(name, val);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Re-validate
-    const isNameValid = !validateField("name", formData.name);
-    const isEmailValid = !validateField("email", formData.email);
-    const isMessageValid = !validateField("message", formData.message);
-    const isRatingValid = !validateField("rating", formData.rating);
+    const v1 = !validateField("name", formData.name);
+    const v2 = !validateField("email", formData.email);
+    const v3 = !validateField("message", formData.message);
+    const v4 = !validateField("rating", formData.rating);   // ★ validate rating
 
-    if (!isNameValid || !isEmailValid || !isMessageValid || !isRatingValid) {
+    if (!v1 || !v2 || !v3 || !v4) {
       setStatus("❌ Please correct the errors in the form.");
       setIsSuccess(false);
       return;
     }
 
     try {
-      // Send rating too
-      await axios.post("https://api.webartifacts.in/api/client/feedback", formData);
+      // ★ include rating in payload (as a number)
+      await axios.post("https://api.webartifacts.in/api/client/feedback", {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        rating: Number(formData.rating),
+      });
+
       setStatus("✅ Feedback submitted successfully");
       setIsSuccess(true);
       setFormData({ name: "", email: "", message: "", rating: 0 });
-      setHoverRating(0);
       setFormErrors({ name: "", email: "", message: "", rating: "" });
     } catch (err) {
       setStatus("❌ Error submitting feedback");
       setIsSuccess(false);
     }
   };
+
+  // simple, accessible star picker
+  const Star = ({ i }) => (
+    <button
+      type="button"
+      className={`star ${i <= formData.rating ? "filled" : ""}`}
+      aria-label={`${i} star`}
+      onClick={() => handleInputChange({ target: { name: "rating", value: i } })}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleInputChange({ target: { name: "rating", value: i } });
+        }
+      }}
+    >
+      {i <= formData.rating ? "★" : "☆"}
+    </button>
+  );
 
   return (
     <div className="client-feedback-page">
@@ -118,6 +119,7 @@ const ClientFeedbackForm = () => {
           <h2 className="feedback-title">💬 Client Feedback</h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Name */}
             <div className="form-group">
               <input
                 type="text"
@@ -131,6 +133,7 @@ const ClientFeedbackForm = () => {
               {formErrors.name && <p className="status-error">{formErrors.name}</p>}
             </div>
 
+            {/* Email */}
             <div className="form-group">
               <input
                 type="email"
@@ -144,42 +147,7 @@ const ClientFeedbackForm = () => {
               {formErrors.email && <p className="status-error">{formErrors.email}</p>}
             </div>
 
-            {/* ★★★ STAR RATING FIELD ★★★ */}
-            <div className="form-group rating-group">
-              <label className="rating-label">Your Rating</label>
-
-              <div
-                className="rating-stars"
-                role="radiogroup"
-                aria-label="Rating"
-                tabIndex={0}
-                onKeyDown={handleStarKey}
-              >
-                {[1, 2, 3, 4, 5].map((n) => (
-                  <button
-                    type="button"
-                    key={n}
-                    className={`star ${((hoverRating || formData.rating) >= n) ? "filled" : ""}`}
-                    aria-label={`${n} star${n > 1 ? "s" : ""}`}
-                    aria-pressed={formData.rating >= n}
-                    onMouseEnter={() => setHoverRating(n)}
-                    onMouseLeave={() => setHoverRating(0)}
-                    onClick={() => handleStarClick(n)}
-                  >
-                    ★
-                  </button>
-                ))}
-                <span className="rating-value">
-                  {(hoverRating || formData.rating) ? `${hoverRating || formData.rating}/5` : "Select"}
-                </span>
-              </div>
-
-              {formErrors.rating && <p className="status-error">{formErrors.rating}</p>}
-
-              {/* keep a hidden input if you ever read from FormData directly */}
-              <input type="hidden" name="rating" value={formData.rating} />
-            </div>
-
+            {/* Message */}
             <div className="form-group">
               <textarea
                 placeholder="Message"
@@ -190,6 +158,22 @@ const ClientFeedbackForm = () => {
                 onChange={handleInputChange}
               ></textarea>
               {formErrors.message && <p className="status-error">{formErrors.message}</p>}
+            </div>
+
+            {/* ★ Rating */}
+            <div className="form-group rating-group">
+              <label className="rating-label">Rating</label>
+              <div className="rating-stars" role="radiogroup" aria-label="Rating">
+                {[1,2,3,4,5].map((i) => <Star key={i} i={i} />)}
+                <input
+                  type="hidden"
+                  name="rating"
+                  value={formData.rating}
+                  onChange={() => {}}
+                />
+                <span className="rating-value">({formData.rating || 0}/5)</span>
+              </div>
+              {formErrors.rating && <p className="status-error">{formErrors.rating}</p>}
             </div>
 
             <button type="submit" className="submit-button">Submit Feedback</button>
@@ -207,6 +191,7 @@ const ClientFeedbackForm = () => {
 };
 
 export default ClientFeedbackForm;
+
 
 
 

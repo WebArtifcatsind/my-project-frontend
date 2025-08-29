@@ -142,6 +142,15 @@ const Home = () => {
 
   const [isMobile, setIsMobile] = useState(false);
 
+
+  // ★ helper: clamp + render star string (supports rating | stars | star)
+  const getRatingValue = (t) => {
+    const raw = t?.rating ?? t?.stars ?? t?.star ?? 0;
+    const num = Math.round(Number(raw) || 0);
+    return Math.max(0, Math.min(5, num));
+  };
+  const renderStars = (n = 0) => "★".repeat(n) + "☆".repeat(5 - n);
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 480);
@@ -511,30 +520,41 @@ const Home = () => {
               ref={testimonialsRef}
               onScroll={handleTestimonialScroll}
             >
-              {testimonials.map((testimonial) => (
-                <motion.div
-                  key={testimonial._id}
-                  className="testimonial-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="testimonial-content">
-                    <p>"{testimonial.message}"</p>
-                  </div>
-                  <div className="testimonial-author">
-                    <div className="testimonial-avatar">
-                      {testimonial.name.charAt(0).toUpperCase()}
+              {testimonials.map((testimonial) => {
+                const rating = getRatingValue(testimonial);
+                return (
+                  <motion.div
+                    key={testimonial._id}
+                    className="testimonial-card"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className="testimonial-content">
+                      <p>"{testimonial.message}"</p>
                     </div>
-                    <div className="testimonial-author-info">
-                      <span className="testimonial-author-name">{testimonial.name}</span>
-                      <span className="testimonial-author-company">{testimonial.company}</span>
+
+                    {/* ★ Stars (shown only if rating > 0) */}
+                    {rating > 0 && (
+                      <div className="testimonial-rating">
+                        <span className="stars">{renderStars(rating)}</span>
+                      </div>
+                    )}
+
+                    <div className="testimonial-author">
+                      <div className="testimonial-avatar">
+                        {testimonial.name.charAt(0).toUpperCase()}
+                      </div>
+                      <div className="testimonial-author-info">
+                        <span className="testimonial-author-name">{testimonial.name}</span>
+                        <span className="testimonial-author-company">{testimonial.company}</span>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
 
             <div className="testimonials-navigation">
