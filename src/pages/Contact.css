@@ -173,20 +173,30 @@
   resize: vertical;
 }
 
-/* Phone number specific styling */
+/* ───────────────────────────────────────────
+   PHONE: side-by-side selector + input
+   ─────────────────────────────────────────── */
 .phone-input-group {
   display: flex;
+  gap: 12px;                 /* space between separate boxes */
+  align-items: stretch;
   position: relative;
   width: 100%;
 }
 
-/* Custom Dropdown Button */
+/* Wrapper to anchor dropdown width to the selector */
+.phone-code {
+  position: relative;
+  flex: 0 0 200px;           /* selector width */
+  max-width: 240px;
+}
+
+/* Country code selector as its own box */
 .custom-dropdown-btn {
   flex-shrink: 0;
   padding: 0.75rem;
   border: 1px solid #e2e8f0;
-  border-right: none;
-  border-radius: 6px 0 0 6px;
+  border-radius: 6px;        /* full corners (separate box) */
   background-color: #f7f7f7;
   font-size: 0.9rem;
   cursor: pointer;
@@ -196,6 +206,7 @@
   min-width: 180px;
   user-select: none;
   position: relative;
+  min-height: 44px;
 }
 
 .custom-dropdown-btn .dropdown-arrow {
@@ -209,11 +220,12 @@
   transform: rotate(180deg);
 }
 
-/* Custom Dropdown List */
-.custom-dropdown-list {
+/* Dropdown list constrained to selector width */
+.phone-code .custom-dropdown-list {
   position: absolute;
   top: 100%;
   left: 0;
+  right: 0;                  /* match phone-code width */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -221,10 +233,9 @@
   border: 1px solid #e2e8f0;
   border-top: none;
   border-radius: 0 0 6px 6px;
-  width: 100%;
-  z-index: 10;
+  z-index: 20;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-height: 120px; /* ~4 items visible, then scroll */
+  max-height: 240px;
   overflow-y: auto;
 }
 
@@ -240,16 +251,17 @@
   background-color: #f0f4f8;
 }
 
-/* Phone input field (right side) */
-.phone-input-group input {
-  flex-grow: 1;
-  border-radius: 0 6px 6px 0;
-  border-left: none; /* align with dropdown */
+/* Phone number input as its own box (fills remaining space) */
+.phone-input-group .phone-number {
+  flex: 1 1 auto;
+  height: 44px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;        /* full corners (separate box) */
 }
 
-/* Focus ring for both dropdown + phone input */
-.phone-input-group input:focus,
-.custom-dropdown-btn:focus {
+/* Focus ring for both selector + phone input */
+.phone-input-group .phone-number:focus,
+.phone-input-group .custom-dropdown-btn:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.35);
   border-color: transparent;
@@ -315,6 +327,14 @@ button[type="submit"]:disabled {
 }
 
 /* Responsive adjustments */
+@media (max-width: 560px) {
+  .phone-input-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .phone-code { flex: 0 0 auto; max-width: 100%; }
+}
+
 @media (max-width: 500px) {
   .contact-form-container {
     max-width: 95%;

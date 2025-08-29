@@ -222,39 +222,54 @@ const Contact = () => {
           </div>
 
           <div className="form-group">
-            <label>Phone *</label>
-            <div className="phone-input-group">
-              <div
-                className={`custom-dropdown-btn ${isDropdownOpen ? 'open' : ''}`}
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              >
-                {countryCodes.find(c => c.code === countryCode).name} ({countryCode})
-                <span className="dropdown-arrow">▼</span>
-              </div>
-              {isDropdownOpen && (
-                <ul className="custom-dropdown-list">
-                  {countryCodes.map(c => (
-                    <li
-                      key={c.code}
-                      onClick={() => handleCountryCodeChange(c.code)}
-                    >
-                      {c.name} ({c.code})
-                    </li>
-                  ))}
-                </ul>
-              )}
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                className={errors.phone ? 'input-error' : ''}
-                pattern="[0-9]*"
-                inputMode="numeric"
-              />
-            </div>
-            {errors.phone && <span className="error-message">{errors.phone}</span>}
-          </div>
+  <label>Phone *</label>
+  <div className="phone-input-group">
+    {/* Country code (wrapped so the dropdown list matches this width) */}
+    <div className="phone-code">
+      <div
+        className={`custom-dropdown-btn ${isDropdownOpen ? 'open' : ''}`}
+        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        role="button"
+        aria-haspopup="listbox"
+        aria-expanded={isDropdownOpen}
+      >
+        <span className="code-label">
+          {countryCodes.find(c => c.code === countryCode).name}
+        </span>
+        <span className="code-value">{countryCode}</span>
+        <span className="dropdown-arrow">▼</span>
+      </div>
+
+      {isDropdownOpen && (
+        <ul className="custom-dropdown-list" role="listbox">
+          {countryCodes.map(c => (
+            <li
+              key={c.code}
+              role="option"
+              onClick={() => handleCountryCodeChange(c.code)}
+            >
+              {c.name} ({c.code})
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+
+    {/* Phone number input */}
+    <input
+      type="tel"
+      name="phone"
+      value={formData.phone}
+      onChange={handleInputChange}
+      className={`phone-number ${errors.phone ? 'input-error' : ''}`}
+      pattern="[0-9]*"
+      inputMode="numeric"
+      placeholder="Phone number"
+    />
+  </div>
+
+  {errors.phone && <span className="error-message">{errors.phone}</span>}
+</div>
 
           <div className="form-group">
             <label htmlFor="message">Message *</label>
