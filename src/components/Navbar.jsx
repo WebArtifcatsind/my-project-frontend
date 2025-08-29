@@ -148,7 +148,24 @@ const Navbar = () => {
             <Link to="#" onClick={toggleSupport} className="nav-link">SUPPORT CENTRE</Link>
             <div className={`support-menu ${showSupportDropdown ? 'show-dropdown' : ''}`}>
               <Link to="/client/complaint" className="support-item" onClick={handleNavLinkClick}>COMPLAINT</Link>
-              <Link to="/client/feedback" className="support-item" onClick={handleNavLinkClick}>FEEDBACK</Link>
+              <Link
+  to="/client/feedback"
+  className="support-item"
+  onClick={(e) => {
+    e.preventDefault();
+    handleNavLinkClick(); // close menus
+
+    if (location.pathname === "/client/feedback") {
+      // already on the page → just scroll to the top
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // navigate; your page's mount effect will run and scroll to top
+      navigate("/client/feedback");
+    }
+  }}
+>
+  FEEDBACK
+</Link>
               <a
   href="/#testimonials"
   className="support-item"
