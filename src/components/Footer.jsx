@@ -161,7 +161,7 @@ const Footer = ({ scrollToSection }) => { // ⬅️ Accept scrollToSection as a 
                                 </div>
                                 <div className="contact-item">
                                     <FaEnvelope className="contact-icon" />
-                                    <p>webartifactsind@gmail.com</p>
+                                    <p>admin@webartifacts.in</p>
                                 </div>
                                 <div className="contact-item">
                                     <FaClock className="contact-icon" />
