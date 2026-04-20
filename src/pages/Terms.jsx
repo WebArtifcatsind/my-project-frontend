@@ -160,7 +160,7 @@ const Terms = () => {
         <p>
           WebArtifacts Pvt Ltd<br />
           Plot no.20, Behind Venue Corner, Balaji Nagar, Nagpur, Maharashtra 440027<br />
-          +91 7758969022 • <a href="mailto:webartifactsind@gmail.com">webartifactsind@gmail.com</a>
+          +91 7758969022 • <a href="mailto:admin@webartifacts.in">webartifactsind@gmail.com</a>
         </p>
       </section>
     </main>
