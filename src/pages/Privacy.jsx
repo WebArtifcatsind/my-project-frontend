@@ -83,7 +83,7 @@ const Privacy = () => {
         <p>
           Subject to applicable law, you may have rights to access, correct, delete, restrict processing, object,
           data portability, and withdraw consent. To exercise these rights, contact us at
-          <a href="mailto:webartifactsind@gmail.com"> webartifactsind@gmail.com</a>.
+          <a href="mailto:admin@webartifacts.in"> admin@webartifacts.in</a>.
         </p>
       </section>
 
