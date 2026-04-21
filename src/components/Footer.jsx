@@ -157,11 +157,11 @@ const Footer = ({ scrollToSection }) => { // ⬅️ Accept scrollToSection as a 
                                 </div>
                                 <div className="contact-item">
                                     <FaPhone className="contact-icon" />
-                                    <p>+91 7758969022</p>
+                                    <a>+91 7758969022</a>
                                 </div>
                                 <div className="contact-item">
                                     <FaEnvelope className="contact-icon" />
-                                    <p>admin@webartifacts.in</p>
+                                    <a>admin@webartifacts.in</a>
                                 </div>
                                 <div className="contact-item">
                                     <FaClock className="contact-icon" />
